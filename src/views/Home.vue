@@ -1,7 +1,7 @@
 <template>
-  <Login />
+  <hello />
 </template>
 
 <script lang="ts" setup>
-  import Login from '@/components/Login.vue'
+  import hello from '@/components/HellloWorld.vue'
 </script>

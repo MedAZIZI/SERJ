@@ -4,7 +4,7 @@
         <!-- Formulaire d'inscription -->
         <v-row class="d-flex align-center justify-center">
             <v-col cols="12" sm="8">
-                <v-card>
+                <!-- <v-card> -->
 
                     <v-card-text>
 
@@ -60,7 +60,7 @@
                             </v-col>
                         </form>
                     </v-card-text>
-                </v-card>
+                <!-- </v-card> -->
             </v-col>
         </v-row>
     </v-container>

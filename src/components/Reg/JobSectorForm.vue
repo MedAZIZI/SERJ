@@ -4,11 +4,9 @@
         <!-- Formulaire d'inscription -->
         <v-row class="d-flex align-center justify-center">
             <v-col cols="12" sm="8">
-                <v-card>
+                <!-- <v-card> -->
 
                     <v-card-text>
-
-                        <!-- https://www.pngwing.com/en/free-png-zdovr/download -->
 
                         <form @submit.prevent="SubmitJobSectorInfo">
                             <h2 style="color: #D3D3D3;">What job sector do you prefer ?</h2>
@@ -27,7 +25,7 @@
                             </v-radio-group>
                         </form>
                     </v-card-text>
-                </v-card>
+                <!-- </v-card> -->
             </v-col>
         </v-row>
     </v-container>

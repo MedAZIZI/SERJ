@@ -2,7 +2,6 @@
     
             <!-- Affichez la partie appropriée en fonction de l'état actuel -->
             <div v-if="currentStep === 'basic-info'">
-                
                 <BasicInfoForm />
             </div>
             <div v-if="currentStep === 'JobSector-info'">
