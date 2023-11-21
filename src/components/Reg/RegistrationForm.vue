@@ -13,6 +13,9 @@
             <div v-if="currentStep === 'Availability-Info'">
                 <AvailabilityInfoForm />
             </div>
+            <div v-if="currentStep === 'Confirm'">
+                <Conf />
+            </div>
             <!-- Ajoutez d'autres parties du formulaire ici -->
 
             <!-- Bouton "Next" pour passer à la partie suivante -->
@@ -31,13 +34,14 @@ import BasicInfoForm from './BasicInfoForm.vue'
 import JobSectorInfoForm from './JobSectorForm.vue'
 import JobTypeInfoForm from './JobTypeForm.vue'
 import AvailabilityInfoForm from './AvailabilityForm.vue'
-
+import Conf from './Confirm.vue'
 export default {
     components: {
         BasicInfoForm,
         JobSectorInfoForm,
         JobTypeInfoForm,
         AvailabilityInfoForm,
+        Conf
         // Importez et utilisez d'autres composants ici si nécessaire
     },
     data() {
@@ -58,11 +62,12 @@ export default {
                 this.currentStep = 'Availability-Info';
                 this.buttonText = '   >> Save  <<   ';
             }else if (this.currentStep === 'Availability-Info') {
-                //this.currentStep = 'Availability-Info';
-                this.buttonText = '   >> Save  <<   ';
+                this.currentStep = 'Confirm';
+                this.buttonText = '   Log In   ';
+            }else if (this.currentStep === 'Confirm') {
+                this.$router.push({ name: 'Login' });
             }
             
-            // Vous pouvez ajouter des validations ou d'autres logiques ici avant de passer à la partie suivante.
         },
     },
 }

@@ -56,7 +56,7 @@ export default {
       // Handle the form submission logic here
       console.log('Selected Option:', this.selectedOption);
       console.log('Input Value:', this.inputValue);
-      this.$router.push({ name: 'Registration' });
+      //this.$router.push({ name: 'Registration' });
     },
   },
 };
@@ -68,6 +68,7 @@ export default {
  border: none;
  box-shadow: none;
  border-radius: 15px;
+ background-color: #F2F6FD;
  /* padding-left: 10px;
  padding-right: 10px; */
 }

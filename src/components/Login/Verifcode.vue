@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  
     <v-container>
       <v-row>
         <v-col cols="12">
@@ -11,34 +11,31 @@
           </v-card-text>
         </v-col>
       </v-row>
-      <v-row>
+      <v-row class="d-flex align-center justify-center">
         <v-form @submit.prevent="submitForm">
-          <v-row class="d-flex align-center justify-center" >
-            <v-col class="inpt" >
-              <v-text-field  v-model="input1"  @input="limitToSingleDigit" type="number" max="1"
-                required></v-text-field>
+          <v-row class="d-flex align-center justify-center">
+            <v-col class="inpt">
+              <v-text-field class="fld" v-model="input1" @input="limitToSingleDigit" type="number" max="1" required></v-text-field>
             </v-col>
-            <v-col class="inpt" >
-              <v-text-field  v-model="input2"  @input="limitToSingleDigit" type="number" max="1"
-                required></v-text-field>
+            <v-col class="inpt">
+              <v-text-field class="fld" v-model="input2" @input="limitToSingleDigit" type="number" max="1" required></v-text-field>
             </v-col>
-            <v-col class="inpt" >
-              <v-text-field  v-model="input3" @input="limitToSingleDigit" type="number" max="1"
-                required></v-text-field>
+            <v-col class="inpt">
+              <v-text-field class="fld" v-model="input3" @input="limitToSingleDigit" type="number" max="1" required></v-text-field>
             </v-col>
-            <v-col  class="inpt" >
-              <v-text-field  v-model="input4" @input="limitToSingleDigit" type="number" max="1"
-                required></v-text-field>
+            <v-col class="inpt">
+              <v-text-field class="fld" v-model="input4" @input="limitToSingleDigit" type="number" max="1" required></v-text-field>
             </v-col>
           </v-row>
         </v-form>
       </v-row>
-      <v-row class="d-flex align-center justify-center">
+      <br><br><br>
+      <!-- <v-row class="d-flex align-center justify-center">
         <v-btn color="primary" @click="sendForm">Verify</v-btn>
-      </v-row>
+      </v-row> -->
 
     </v-container>
-  </v-app>
+  
 </template>
 
 <script>
@@ -70,11 +67,21 @@ export default {
 };
 </script>
 <style>
-.inpt{
+/* .inpt {
   width: 70px;
   height: 70px;
-  border-radius: 10;
-  background-color: white;
+  /* border-radius: 10; 
+  background-color: transparent;
   margin-left: 2px;
+  border-radius: 12px;
+  border: 1px solid var(--grey-70, #AFB0B6);
+} */
+.fld{
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  margin-left: 2px;
+  border-radius: 12px;
+  border: 1px solid var(--grey-70, #AFB0B6);
 }
 </style>

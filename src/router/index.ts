@@ -26,8 +26,23 @@ const routes = [
       },
       {
         path: 'frgtPswrd',
-        name: 'frgtPswrd', 
+        name: 'FrgtPswrd', 
         component: () => import(/* webpackChunkName: "FrgtPswrd" */ '@/views/Forgotpswrd.vue'),
+      },
+      {
+        path: 'map',
+        name: 'Map', 
+        component: () => import(/* webpackChunkName: "map" */ '@/views/map.vue'),
+      },
+      {
+        path: 'profil',
+        name: 'Profil', 
+        component: () => import(/* webpackChunkName: "profil" */ '@/views/Profil.vue'),
+      },
+      {
+        path: 'editprofil',
+        name: 'EditProfil', 
+        component: () => import(/* webpackChunkName: "editprofil" */ '@/views/EditProfil.vue'),
       },
     ],
   },
