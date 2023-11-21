@@ -31,7 +31,7 @@
                 <!-- Btn login -->
 
                 <v-row class="d-flex align-center justify-center">
-                  <v-btn color="primary" type="submit">Login</v-btn>
+                  <v-btn color="primary" type="submit" >Login</v-btn>
                 </v-row>
                 <br>
                 <v-row class="d-flex align-center justify-center">
@@ -76,6 +76,7 @@ export default {
       console.log('Nom d\'utilisateur:', this.username);
       console.log('Mot de passe:', this.password);
       // Redirigez l'utilisateur après la connexion réussie
+      this.$router.push({ name: 'Catalogue' });
     },
     redirectToSignup() {
       this.$router.push({ name: 'Registration' });
