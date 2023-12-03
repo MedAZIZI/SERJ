@@ -54,23 +54,18 @@ export default {
             };
         },
         submitJobSectorInfo() {
-            // You can perform validation here if needed
-            // Emit an event or pass the contactInfo data to the parent component
+
             this.$emit('JobSector-info-submitted', this.JobSectorInfo);
         },
     },
 };
 </script>
-<style>
+<style >
 .radio-with-border {
     border: 1px solid #ccc;
-    /* Ajoutez la bordure autour du bouton radio */
     border-radius: 5px;
-    /* Vous pouvez ajuster le rayon de la bordure */
     padding: 8px;
-    /* Ajustez la marge intérieure pour l'espacement */
     margin-bottom: 10px;
-    /* Espacez les boutons radio les uns des autres */
 }
 
 .radio-checked {

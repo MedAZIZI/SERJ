@@ -55,7 +55,7 @@ nextStep() {
         this.currentStep = 'S3';
     }else if (this.currentStep === 'S3') {
         this.currentStep = 'S4';
-        this.buttonText = '   >> Save  <<   ';
+        this.buttonText = '   Add Job  ';
     }else if (this.currentStep === 'S4') {
         this.currentStep = 'S5';
         this.buttonText = '   Log In   ';
