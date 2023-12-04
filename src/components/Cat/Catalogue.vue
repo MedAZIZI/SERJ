@@ -448,4 +448,12 @@ export default {
 
 <style scoped>
 /* Component-specific styles */
+.v-container {
+    height: 100%;
+    background: #A3C8D3;
+}
+.v-autocomplete {
+  width: 150%;
+  background: white;
+}
 </style>
