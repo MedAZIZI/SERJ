@@ -14,8 +14,8 @@
                             <h4 style="color: #D3D3D3;">Let's Register to apply for jobs!</h4>
                             <br>
                             <v-row justify="center">
-                                <v-img src="src/assets/profil.png" height="100px" alt="Image Description">
-                                </v-img>
+                                <!-- <v-img src="src/assets/profil.png" height="100px" alt="Image Description">
+                                </v-img> -->
                             </v-row>
 
                             <br>
