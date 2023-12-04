@@ -62,12 +62,12 @@ const routes = [
       {
         path: 'message',
         name: 'Message', 
-        component: () => import(/* webpackChunkName: "addJob" */ '@/views/Message.vue'),
+        component: () => import(/* webpackChunkName: "message" */ '@/views/Message.vue'),
       },
       {
-        path: '/notifications',
+        path: 'notifications',
         name: 'notifications',
-        component: () => import('@/views/notifications.vue'),
+        component: () => import(/* webpackChunkName: "notifications" */ '@/views/notifications.vue'),
       },
     ],
   },
