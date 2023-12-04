@@ -49,11 +49,6 @@ const routes = [
         name: 'Catalogue', 
         component: () => import(/* webpackChunkName: "catalogue" */ '@/views/Catalogue.vue'),
       },
-      // {
-      //   path: 'complogin',
-      //   name: 'Complogin', 
-      //   component: () => import(/* webpackChunkName: "complogin" */ '@/views/Company/Login.vue'),
-      // },
       {
         path: 'compreg',
         name: 'CompReg', 
@@ -63,6 +58,11 @@ const routes = [
         path: 'addJob',
         name: 'AddJob', 
         component: () => import(/* webpackChunkName: "addJob" */ '@/views/Company/AddJob.vue'),
+      },
+      {
+        path: 'message',
+        name: 'Message', 
+        component: () => import(/* webpackChunkName: "addJob" */ '@/views/Message.vue'),
       },
     ],
   },
