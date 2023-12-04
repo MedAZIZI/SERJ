@@ -13,6 +13,11 @@
                 </v-row>
                 
             </v-col>
+            <v-container>
+                                <v-row justify="center">
+                                    <v-btn color="primary" type="submit" @click="this.$router.push({ name: 'Login' });">   Log In   </v-btn>
+                                </v-row >
+                            </v-container>
         </v-responsive>
     </v-container>
 </template>

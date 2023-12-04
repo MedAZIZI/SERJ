@@ -177,13 +177,56 @@
 </template>
 
 <script>
+import UserDataService from '../../services/UserDataService'
 
 export default {
     data() {
-        return {
-            name: 'AZIZI Mohammed',
-            title: 'Event Planer',
+       /* try {
+            var user = UserDataService.get();
+            console.log(user)
+            return {
+                name: user.nom+" "+user.prenom,
+                title: 'Event Planner',
+                view: 14,
+            var1: 'Event Planner',
+            var2: 'Bee Restaurant',
+            var3: 'Lyon 9, FR',
+            var4: 'Dec 20 - Feb 21',
+            job_Pref: {
+                Type: user.jobType,
+                Sector: user.jobSector,
+                Availability: ['Weekends', 'Weekends', 'M-T-W-T'],
+                Location: ['Lyon 2', 'Villeurbanne', 'Bron', 'Lyon 7'],
+                Interview: ['Evenings', 'Weekdays', 'Fridays', 'M-T-W-T', 'Weekends'],
+            },
+                // ... (autres données)
+            };
+        } catch (error) {
+            console.error('Error fetching user data:', error);
+            // Gérer l'erreur de manière appropriée
+            return {
+                name: "Default name",
+            title: 'Event Planner',
             view: 14,
+            var1: 'Event Planner',
+            var2: 'Bee Restaurant',
+            var3: 'Lyon 9, FR',
+            var4: 'Dec 20 - Feb 21',
+            job_Pref: {
+                Type: ['Full Time'],
+                Sector: ['Administrative', 'Cuture', 'Customer Service'],
+                Availability: ['Weekends', 'Weekends', 'M-T-W-T'],
+                Location: ['Lyon 2', 'Villeurbanne', 'Bron', 'Lyon 7'],
+                Interview: ['Evenings', 'Weekdays', 'Fridays', 'M-T-W-T', 'Weekends'],
+            },
+            
+            
+        }*/
+        return {
+            results:[],
+            name: "Default Name",
+            title: 'Event Planer',
+            view: 0,
             var1: 'Event Planner',
             var2: 'Bee Restaurant',
             var3: 'Lyon 9, FR',
@@ -197,6 +240,21 @@ export default {
             },
         };
     },
+    mounted() {
+        UserDataService.get().then(response => {
+            console.log(response.data)
+            this.results = response.data,
+            console.log(this.results)
+            this.name = this.results.prenom+" "+this.results.nom,
+            this.job_Pref = {
+                Type: [this.results.jobType],
+                Sector: [this.results.jobSector],
+                Availability: [this.results.Hours, this.results.Day, this.results.Week, this.results.Shift, this.results.Extra],
+                Location: this.results.jobLocation,
+                Interview: this.results.interviewAv,
+            }
+        })
+  },
     methods: {
         redirectToEdit() {
             this.$router.push({ name: 'EditProfil' });
@@ -323,6 +381,15 @@ export default {
     text-align: center;
     border-radius: 16px;
     background: rgba(163, 198, 87, 0.77);
+    width: 108px;
+    height: 32px;
+    margin: 8px;
+}
+.khdra_off {
+    color: white;
+    text-align: center;
+    border-radius: 16px;
+    background: rgba(120, 120, 120, 0.77);
     width: 108px;
     height: 32px;
     margin: 8px;

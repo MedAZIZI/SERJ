@@ -14,25 +14,25 @@
       <v-row class="d-flex align-center justify-center">
         <v-form @submit.prevent="submitForm">
           <v-row class="d-flex align-center justify-center">
-            <v-col class="inpt">
-              <v-text-field class="fld" v-model="input1" @input="limitToSingleDigit" type="number" max="1" required></v-text-field>
+            <v-col cols="3">
+              <v-text-field class="fld" v-model="input1" @input="limitToSingleDigit" type="number" required></v-text-field>
             </v-col>
-            <v-col class="inpt">
-              <v-text-field class="fld" v-model="input2" @input="limitToSingleDigit" type="number" max="1" required></v-text-field>
+            <v-col cols="3">
+              <v-text-field class="fld" v-model="input2" @input="limitToSingleDigit" type="number" required></v-text-field>
             </v-col>
-            <v-col class="inpt">
-              <v-text-field class="fld" v-model="input3" @input="limitToSingleDigit" type="number" max="1" required></v-text-field>
+            <v-col cols="3">
+              <v-text-field class="fld" v-model="input3" @input="limitToSingleDigit" type="number" required></v-text-field>
             </v-col>
-            <v-col class="inpt">
-              <v-text-field class="fld" v-model="input4" @input="limitToSingleDigit" type="number" max="1" required></v-text-field>
+            <v-col cols="3">
+              <v-text-field class="fld" v-model="input4" @input="limitToSingleDigit" type="number" required></v-text-field>
             </v-col>
           </v-row>
         </v-form>
       </v-row>
       <br><br><br>
-      <!-- <v-row class="d-flex align-center justify-center">
-        <v-btn color="primary" @click="sendForm">Verify</v-btn>
-      </v-row> -->
+       <v-row class="d-flex align-center justify-center">
+        <v-btn color="primary" @click="submitForm">Verify</v-btn>
+      </v-row>
 
     </v-container>
   
@@ -62,6 +62,8 @@ export default {
       console.log('Input 2:', this.input2);
       console.log('Input 3:', this.input3);
       console.log('Input 4:', this.input4);
+      console.log(this.input1+this.input2+this.input3+this.input4)
+      this.$emit('verify-submitted', this.input1+this.input2+this.input3+this.input4);
     },
   },
 };

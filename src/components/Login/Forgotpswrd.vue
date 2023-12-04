@@ -27,10 +27,13 @@
       <v-row>
         
         <v-col cols="12">
-          <v-text-field v-model="inputValue" :label="selectedOption === 'email' ? 'Email' : 'Téléphone'"
+          <v-text-field v-model="inputValue"  :label="selectedOption === 'email' ? 'Email' : 'Téléphone'"
             :placeholder="selectedOption === 'email' ? 'Entrez votre email' : 'Entrez votre numéro de téléphone'"></v-text-field>
         </v-col>
       </v-row>
+      <v-row justify="center">
+          <v-btn color="primary" @click="sendForm" > Verify </v-btn>
+      </v-row >
 
       
     </v-container>
@@ -38,6 +41,7 @@
 </template>
 
 <script>
+import UserDataService from '../../services/UserDataService'
 export default {
   data() {
     return {
@@ -56,6 +60,20 @@ export default {
       // Handle the form submission logic here
       console.log('Selected Option:', this.selectedOption);
       console.log('Input Value:', this.inputValue);
+      if(this.selectedOption=='email') {
+          console.log(this.inputValue)
+          this.$emit('request-submitted', this.inputValue);
+          UserDataService.requestResetPassword({"email" : this.inputValue})
+          .then((response) => {
+              console.log(response.data);
+              console.log("sent");
+              this.$emit('request-submitted', this.inputValue);
+          })
+              .catch((e) => {
+              console.log(e.status);
+              });
+              
+      }
       //this.$router.push({ name: 'Registration' });
     },
   },
