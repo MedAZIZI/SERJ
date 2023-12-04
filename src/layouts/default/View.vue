@@ -117,7 +117,7 @@ export default {
 
 .barBot {
   position: fixed;
-  bottom: 0px;
+  bottom: -1px;
   width: 100%;
   height: 70px;
   /* background-color: white; */
