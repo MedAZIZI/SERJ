@@ -12,7 +12,7 @@
           {{ name }}
         </v-row>
         <v-row class="d-flex align-center justify-center">
-         Event Planner
+          Event Planner
         </v-row>
 
       </v-col>
@@ -59,11 +59,13 @@
 
 
   </v-app-bar>
-  <v-main>
+  <v-main style="padding-bottom: 70px;">
     <router-view />
+
   </v-main>
 
-  <v-bottom-nav v-model="activeLink" :value.sync="activeLink" style="z-index: 1000PX;">
+  <v-bottom-nav v-model="activeLink" :value.sync="activeLink" app fixed class="barBot" >
+    <br>
     <v-row class="d-flex align-center justify-center ">
 
       <v-btn icon @click="navigateTo('/catalogue')" class="icobar">
@@ -110,11 +112,17 @@ export default {
 }
 
 .icobar {
-  margin-left: 15px;
-  margin-right: 15px;
+  margin: 0px 20px 0px 20px;
 }
 
-.v-bottom-nav {
-  box-shadow: none;
+.barBot {
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  height: 70px;
+  /* background-color: white; */
+  background: linear-gradient(to top,white, whitesmoke);
+
+  /* z-index: 1000;  */
 }
 </style>
