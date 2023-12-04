@@ -59,7 +59,7 @@ export default {
     console.log(this.currentStep);
     setTimeout(() => {
       this.currentStep = '2';
-    }, 2000);
+    }, 1000);
   },
   methods: {
     nextStep() {

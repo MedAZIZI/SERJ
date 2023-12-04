@@ -1,6 +1,6 @@
 <template>
   <v-app-bar app>
-    <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+    <v-app-bar-nav-icon @click.stop="drawer = !drawer" ></v-app-bar-nav-icon>
 
     <v-img height="100" width="100" src="src/assets/logo serj bg.png"  class="logo_lft"/>
 
@@ -14,7 +14,7 @@
   <v-bottom-nav v-model="activeLink" :value.sync="activeLink"   app fixed position="bottom" >
     <v-row class="d-flex align-center justify-center ">
 
-      <v-btn icon @click="navigateTo('/')" class="icobar">
+      <v-btn icon @click="navigateTo('/catalogue')" class="icobar">
         <v-icon>mdi-home</v-icon>
       </v-btn>
 
@@ -22,11 +22,11 @@
         <v-icon>mdi-email</v-icon>
       </v-btn>
 
-      <v-btn icon @click="navigateTo('/about')" class="icobar">
+      <v-btn icon @click="navigateTo('/notifications')" class="icobar">
         <v-icon>mdi-marker-check</v-icon>
       </v-btn>
 
-      <v-btn icon @click="navigateTo('/about')" class="icobar">
+      <v-btn icon @click="navigateTo('/notifications')" class="icobar">
         <v-icon>mdi-view-grid</v-icon>
       </v-btn>
 
@@ -58,5 +58,8 @@ export default {
 .icobar{
   margin-left: 15px;
   margin-right: 15px;
+}
+.v-bottom-nav{
+  box-shadow: none;
 }
 </style>

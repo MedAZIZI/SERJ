@@ -66,12 +66,12 @@ export default {
         {
           imageUrl: "src/assets/book.png",
           emp: "Booking.com",
-          text: " reviewed your application. All the best!",
+          text: " reviewed your application.\n All the best!",
         },
         {
           imageUrl: "src/assets/book.png",
           emp: "Booking.com",
-          text: " reviewed your application. All the best!",
+          text: " reviewed your application.\n All the best!",
         },
       ],
     };

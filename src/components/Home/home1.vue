@@ -2,7 +2,7 @@
     <v-app>
         <v-container class="fill-height">
             <v-responsive class="align-center text-center fill-height">
-                <!-- <v-img height="300" src="@/assets/logo serj bg.png" /> -->
+                <v-img height="300" src="@/assets/logo serj bg.png" />
 
             </v-responsive>
         </v-container>
