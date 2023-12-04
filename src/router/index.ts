@@ -49,11 +49,11 @@ const routes = [
         name: 'Catalogue', 
         component: () => import(/* webpackChunkName: "catalogue" */ '@/views/Catalogue.vue'),
       },
-      {
-        path: 'complogin',
-        name: 'Complogin', 
-        component: () => import(/* webpackChunkName: "complogin" */ '@/views/Company/Login.vue'),
-      },
+      // {
+      //   path: 'complogin',
+      //   name: 'Complogin', 
+      //   component: () => import(/* webpackChunkName: "complogin" */ '@/views/Company/Login.vue'),
+      // },
       {
         path: 'compreg',
         name: 'CompReg', 

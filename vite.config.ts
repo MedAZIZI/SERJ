@@ -2,6 +2,7 @@
 import vue from '@vitejs/plugin-vue'
 import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'
 import ViteFonts from 'unplugin-fonts/vite'
+import ViteImages from 'vite-plugin-vue-images';
 
 // Utilities
 import { defineConfig } from 'vite'
@@ -10,6 +11,7 @@ import { fileURLToPath, URL } from 'node:url'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
+    ViteImages(),
     vue({
       template: { transformAssetUrls }
     }),
@@ -46,5 +48,20 @@ export default defineConfig({
   },
   server: {
     port: 3000,
+  },
+  build: {
+    assetsDir: 'assets',
+    assetsInlineLimit: 10000,
+    rollupOptions: {
+      external: [
+          'src/assets/profil.png',
+          'src/assets/user.png',
+          'src/assets/flower.png',
+          'src/assets/bee.png',
+          'src/assets/ull.png',
+          'src/assets/logo serj bg.png',
+          'src/assets/logo%20serj%20bg.png'
+        ],
+    },
   },
 })

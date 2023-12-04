@@ -33,11 +33,11 @@
 </template>
 
 <script >
-import home1 from '@/components/home/home1.vue'
-import home2 from '@/components/home/home2.vue'
-import home3 from '@/components/home/home3.vue'
-import home4 from '@/components/home/home4.vue'
-import home5 from '@/components/home/home5.vue'
+import home1 from '@/components/Home/home1.vue'
+import home2 from '@/components/Home/home2.vue'
+import home3 from '@/components/Home/home3.vue'
+import home4 from '@/components/Home/home4.vue'
+import home5 from '@/components/Home/home5.vue'
 
 
 export default {
