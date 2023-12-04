@@ -64,6 +64,11 @@ const routes = [
         name: 'Message', 
         component: () => import(/* webpackChunkName: "addJob" */ '@/views/Message.vue'),
       },
+      {
+        path: '/notifications',
+        name: 'notifications',
+        component: () => import('@/views/notifications.vue'),
+      },
     ],
   },
 ]
