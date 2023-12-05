@@ -1,8 +1,5 @@
 import Vue from 'vue';
-import VueAwesomeSwiper from 'vue-awesome-swiper';
-import 'swiper/swiper-bundle.css';
-
-Vue.use(VueAwesomeSwiper);
+import logo from 'src/assets/logos/icon-filter-10.jpg';
 
 <template>
   <v-container>
@@ -29,9 +26,11 @@ Vue.use(VueAwesomeSwiper);
 
   <!-- Filter Buttons -->
   <v-col>
-    <v-btn @click="openFilterDialog" color="primary">Filter</v-btn>
-    <!-- Add more filter buttons as needed -->
-  </v-col>
+    <v-btn @click="openFilterDialog" color="primary">
+ <img :src="logo" alt="Filter">
+</v-btn>
+</v-col>
+   
         </v-row>
       <!-- Filter Dialog -->
       <v-dialog v-model="showFilterDialog" max-width="600">
@@ -53,35 +52,27 @@ Vue.use(VueAwesomeSwiper);
 
     <!-- Section: Suggested Jobs -->
     <v-row>
- <v-col>
-    <h2>Suggested Jobs</h2>
-    <swiper :options="swiperOptions">
-      <!-- Correct placement of swiper-slide -->
-      <swiper-slide v-for="job in filteredSuggestedJobs" :key="job.id">
-        <!-- Individual job card content -->
-        <v-row>
-          <v-col cols="12" md="4" lg="4">
-            <!-- Popular Job Card Content -->
-            <swipeout>
-              <v-card slot="content">
+    <v-col>
+      <h2>Suggested Jobs</h2>
+      <v-carousel cycle height="300" hide-delimiter-background show-arrows-on-hover>
+        <v-carousel-item v-for="job in filteredSuggestedJobs" :key="job.id">
+          <!-- Individual job card content -->
+          <v-row>
+            <v-col cols="12" md="4" lg="4">
+              <!-- Popular Job Card Content -->
+              <v-card>
                 <v-img :src="job.logo" alt="Company Logo" width="100" height="100"></v-img>
                 <v-card-title>{{ job.title }}</v-card-title>
                 <v-card-subtitle>{{ job.company }} - {{ job.location }}</v-card-subtitle>
                 <v-card-text>{{ job.description }}</v-card-text>
                 <v-btn @click="openDetailsDialog(job)">View Details</v-btn>
               </v-card>
-              <div slot="right-menu">
-                <!-- Your swipeout right menu content goes here -->
-              </div>
-            </swipeout>
-          </v-col>
-        </v-row>
-      </swiper-slide>
-      <div class="swiper-button-next" slot="button-next"></div>
-      <div class="swiper-button-prev" slot="button-prev"></div>
-    </swiper>
- </v-col>
-</v-row>
+            </v-col>
+          </v-row>
+        </v-carousel-item>
+      </v-carousel>
+    </v-col>
+ </v-row>
 
 
     <!-- Section: Popular Jobs -->
@@ -123,8 +114,9 @@ Vue.use(VueAwesomeSwiper);
     </v-dialog>
   </v-container>
 </template>
-
+import { mdiFilterMenu } from '@mdi/js';
 <script>
+
 export default {
   data() {
     return {
@@ -136,22 +128,52 @@ export default {
       filteredSuggestedJobs: [
   {
     id: 10,
-    title: 'Software Engineer',
+    title: 'Language Teacher',
     company: 'Tech Innovators',
     location: 'Any, Remote',
-    salaryRange: '10 Euro/Hour ',
-    description: 'Join our innovative tech team.',
-    logo: 'src/assets/logos/play-burger-king-png-logo-2.PNG',
+    salaryRange: '14 Euro/Hour ',
+    description: 'Join our innovative teachers team.',
+    logo: 'src/assets/logos/rovenlogos_languageschool.PNG',
   },
   {
           id: 11,
-          title: 'Counselor',
+          title: 'Kid Counselor',
           company: 'Advkers',
           location: 'Bron, FR',
           salaryRange: '11 Euro/Hour',
           description: 'Lead outdoor activities for kids in a summer camp setting.',
-          logo: 'src/assets/logos/ac-mainstage-logo_800x336.PNG',
+          logo: 'src/assets/logos/360_F_429008357_9Koj5MAH2yJ3FGn80BeSmOS12TAIiIbh.JPG',
         },
+        {
+    id: 12,
+    title: 'Beach Photographer',
+    company: 'Sunny Snaps',
+    location: 'Coastal Resort, FL',
+    salaryRange: '$20/hour',
+    description: 'Capture memorable moments by taking photos of beachgoers and tourists.',
+    logo: 'src/assets/logos/photography-logo,-camera-logo,-modern-camera-design-template-304c7861a9e4347e50d7a9e7ff65cae8_screen.JPG',
+    requirements: 'Experience in photography, own camera equipment',
+  },
+  {
+    id: 13,
+    title: 'Outdoor Event Coordinator',
+    company: 'Summer Festivals Co.',
+    location: 'City Parks, TX',
+    salaryRange: '$25/hour',
+    description: 'Plan and organize outdoor events and festivals for the summer season.',
+    logo: 'src/assets/logos/imagesol.JPG',
+    requirements: 'Event planning experience, organizational skills',
+  },
+  {
+    id: 14,
+    title: 'Water Sports Instructor',
+    company: 'Aqua Thrills',
+    location: 'Tropical Paradise, HI',
+    salaryRange: '$22/hour',
+    description: 'Teach and supervise water sports activities like snorkeling and paddleboarding.',
+    logo: 'src/assets/logos/94906723c9f80ede2987b507327492f9.JPG',
+    requirements: 'Certification in water sports, strong communication skills',
+  },
 ], 
  filteredPopularJobs: [
         // ... (existing popular jobs data)
@@ -453,7 +475,11 @@ export default {
     background: #A3C8D3;
 }
 .v-autocomplete {
-  width: 150%;
+  width: 270px;
+  height: 50px;
   background: white;
+}
+.v-carousel {
+ box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 </style>
