@@ -61,10 +61,12 @@
 </template>
 
 <script >
+import UserDataService from '../../services/UserDataService'
+
 export default {
   data() {
     return {
-      username: '',
+      email: '',
       password: '',
       showPassword: true,
     };
@@ -72,11 +74,19 @@ export default {
   methods: {
     login() {
       // Ajoutez votre logique de connexion ici
-      alert('Nom d\'utilisateur:' + this.username)
-      console.log('Nom d\'utilisateur:', this.username);
+      alert('Nom d\'utilisateur:' + this.email)
+      console.log('Nom d\'utilisateur:', this.email);
       console.log('Mot de passe:', this.password);
+      UserDataService.login({"email" : this.email, "password" : this.password})
+      .then((response) => {
+          console.log(response.data);
       // Redirigez l'utilisateur après la connexion réussie
-      this.$router.push({ name: 'Catalogue' });
+          localStorage.setItem('userToken', response.data.token);
+          if(response.status==200) this.$router.push({ name: 'Profil' })
+      })
+        .catch((e) => {
+          console.log(e.status);
+        });
     },
     redirectToSignup() {
       this.$router.push({ name: 'Registration' });

@@ -23,6 +23,11 @@
                                     </v-col>
                                 </v-row>
                             </v-radio-group>
+                            <v-container>
+                                <v-row justify="center">
+                                    <v-btn color="primary" type="submit">Next</v-btn>
+                                </v-row >
+                            </v-container>
                         </form>
                     </v-card-text>
                 <!-- </v-card> -->
@@ -55,7 +60,7 @@ export default {
         SubmitJobTypeInfo() {
             // You can perform validation here if needed
             // Emit an event or pass the contactInfo data to the parent component
-            this.$emit('JobType-info-submitted', this.JobTypeInfo);
+            this.$emit('JobType-info-submitted', this.options.find(option => option.value === this.selectedOption).label);
         },
     },
 };

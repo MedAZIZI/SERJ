@@ -58,6 +58,11 @@
                                     </v-col>
                                 </v-row>
                             </v-col>
+                            <v-container>
+                                <v-row justify="center">
+                                    <v-btn color="primary" type="submit">   >> Save  &lt;&lt;   </v-btn>
+                                </v-row >
+                            </v-container>                            
                         </form>
                     </v-card-text>
                 <!-- </v-card> -->
@@ -88,7 +93,11 @@ export default {
         Save() {
             // You can perform validation here if needed
             // Emit an event or pass the contactInfo data to the parent component
-            this.$emit('Avaibalility-info-submitted', this.AvailabilityInfo);
+            this.$emit('Avaibalility-info-submitted', /*this.AvailabilityInfo*/{  "Hours": "8",
+                                                        "Day": "Monday",
+                                                        "Week": "1",
+                                                        "Shift": "Morning",
+                                                        "Extra": "None"});
         },
     },
 };

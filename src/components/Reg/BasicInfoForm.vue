@@ -34,7 +34,11 @@
                             <v-text-field v-model="basicInfo.password" label="Password" required
                                 class="w-100"></v-text-field>
                             <v-text-field v-model="basicInfo.phone" label="Phone" required class="w-100"></v-text-field>
-                            <!-- <v-btn color="primary" type="submit">Next</v-btn> -->
+                            <v-container>
+                                <v-row justify="center">
+                                    <v-btn color="primary" type="submit">Next</v-btn>
+                                </v-row >
+                            </v-container>
                         </form>
                     </v-card-text>
                 <!-- </v-card> -->
