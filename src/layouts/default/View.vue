@@ -66,7 +66,7 @@
 
   <v-bottom-nav v-model="activeLink" :value.sync="activeLink" app fixed class="barBot" >
     <br>
-    <v-row class="d-flex align-center justify-center ">
+    <v-row class="d-flex align-center justify-center bar ">
 
       <v-btn icon @click="navigateTo('/catalogue')" class="icobar">
         <v-icon>mdi-home</v-icon>
@@ -124,5 +124,9 @@ export default {
   background: linear-gradient(to top,white, whitesmoke);
 
   /* z-index: 1000;  */
+}
+.bar .v-btn--variant-elevated{
+  box-shadow: none;
+  background: linear-gradient(to top,white, whitesmoke);
 }
 </style>
