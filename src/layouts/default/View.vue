@@ -39,7 +39,7 @@
         </v-list-item-icon>
       </v-list-item>
       <div style="height: 200px;"></div>
-      <v-list-item link to="/about">
+      <v-list-item link to="/settings">
         <v-list-item-icon>
           <v-icon>mdi-cog</v-icon> Setting
         </v-list-item-icon>
