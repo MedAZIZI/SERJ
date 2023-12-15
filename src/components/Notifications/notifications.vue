@@ -113,4 +113,5 @@ export default {
 
 .insideCard {
   padding: 15px
-}</style>
+}
+</style>

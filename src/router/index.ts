@@ -69,6 +69,32 @@ const routes = [
         name: 'notifications',
         component: () => import(/* webpackChunkName: "notifications" */ '@/views/notifications.vue'),
       },
+      {
+        path: 'settings',
+        name: 'Settings',
+        component: () => import(/* webpackChunkName: "settings" */ '@/views/settings/Settings.vue'),
+      },
+      {
+        path: 'about',
+        name: 'About',
+        component: () => import(/* webpackChunkName: "about" */ '@/views/settings/about.vue'),
+      },
+      {
+        path: 'privacy',
+        name: 'Privacy',
+        component: () => import(/* webpackChunkName: "privacy" */ '@/views/settings/privacy.vue'),
+      },
+      {
+        path: 'terms',
+        name: 'Terms',
+        component: () => import(/* webpackChunkName: "terms" */ '@/views/settings/Terms.vue'),
+      },
+      {
+        path: 'help',
+        name: 'Help',
+        component: () => import(/* webpackChunkName: "help" */ '@/views/settings/Help.vue'),
+      },
+      
     ],
   },
 ]

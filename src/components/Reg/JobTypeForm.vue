@@ -68,13 +68,9 @@ export default {
 <style>
 .radio-with-border {
     border: 1px solid #ccc;
-    /* Ajoutez la bordure autour du bouton radio */
     border-radius: 5px;
-    /* Vous pouvez ajuster le rayon de la bordure */
     padding: 8px;
-    /* Ajustez la marge intérieure pour l'espacement */
     margin-bottom: 10px;
-    /* Espacez les boutons radio les uns des autres */
 }
 
 .radio-checked {
@@ -85,7 +81,7 @@ export default {
 }
 .v-icon {
   margin-left: 40px; /* Adjust the margin as needed */
-  display: none;
+  /* display: none; */
 }
 .icon{
     display: block;

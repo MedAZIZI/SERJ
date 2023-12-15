@@ -16,48 +16,50 @@
 
                             <br>
                             <v-col>
-                                <!-- First Row: Label -->
-                                <v-row>
-                                    <v-col cols="2">
-                                        <v-label>Hours :</v-label>
-                                    </v-col>
-                                    <v-col cols="10">
-                                        <v-select v-model="selectedItem" :items="items" label="Flexible" outlined></v-select>
-                                    </v-col>
-                                </v-row>
-                                <v-row>
-                                    <v-col cols="2">
-                                        <v-label>Day :</v-label>
-                                    </v-col>
-                                    <v-col cols="10">
-                                        <v-select v-model="selectedItem" :items="items" label="Flexible" outlined></v-select>
-                                    </v-col>
-                                </v-row>
-                                <v-row>
-                                    <v-col cols="2">
-                                        <v-label>Week :</v-label>
-                                    </v-col>
-                                    <v-col cols="10">
-                                        <v-select v-model="selectedItem" :items="items" label="Flexible" outlined></v-select>
-                                    </v-col>
-                                </v-row>
-                                <v-row>
-                                    <v-col cols="2">
-                                        <v-label>Shift :</v-label>
-                                    </v-col>
-                                    <v-col cols="10">
-                                        <v-select v-model="selectedItem" :items="items" label="Flexible" outlined></v-select>
-                                    </v-col>
-                                </v-row>
-                                <v-row>
-                                    <v-col cols="2">
-                                        <v-label>Extra :</v-label>
-                                    </v-col>
-                                    <v-col cols="10">
-                                        <v-select v-model="selectedItem" :items="items" label="Flexible" outlined></v-select>
-                                    </v-col>
-                                </v-row>
-                            </v-col>
+                            <v-row>
+                                <v-col cols="2">
+                                    <v-label>Hours :</v-label>
+                                </v-col>
+                                <v-col cols="10">
+                                    <v-select class="custom-select" hide-details="true" v-model="selectedHours" :items="Hours" label="Flexible" outlined></v-select>
+                                </v-col>
+                            </v-row>
+                            <v-row>
+                                <v-col cols="2">
+                                    <v-label>Day :</v-label>
+                                </v-col>
+                                <v-col cols="10">
+                                    <v-select class="custom-select" hide-details="true" v-model="selectedDays" :items="Days" label="Flexible" outlined></v-select>
+                                </v-col>
+                            </v-row>
+                            <v-row>
+                                <v-col cols="2">
+                                    <v-label>Week :</v-label>
+                                </v-col>
+                                <v-col cols="10">
+                                    <v-select class="custom-select" hide-details="true" v-model="selectedWeek" :items="Week" label="Flexible" outlined></v-select>
+                                </v-col>
+                            </v-row>
+                            <v-row>
+                                <v-col cols="2">
+                                    <v-label>Shift :</v-label>
+                                </v-col>
+                                <v-col cols="10">
+                                    <v-select class="custom-select" hide-details="true" v-model="selectedShift" :items="Shift" label="Flexible" outlined></v-select>
+                                </v-col>
+                            </v-row>
+                            <v-row>
+                                <v-col cols="2">
+                                    <v-label>Extra :</v-label>
+                                </v-col>
+                                <v-col cols="10">
+                                    <v-select class="custom-select" hide-details="true" v-model="selectedExtra" :items="Extra" label="Paid overtime"
+                                    
+                                        outlined></v-select>
+                                </v-col>
+                                
+                            </v-row>
+                        </v-col>
                             <v-container>
                                 <v-row justify="center">
                                     <v-btn color="primary" type="submit">   >> Save  &lt;&lt;   </v-btn>
@@ -75,12 +77,16 @@
 export default {
     data() {
         return {
-            selectedItem: null,
-      items: [
-        { text: 'Item 1', icon: 'mdi-check' },
-        { text: 'Item 2', icon: 'mdi-star' },
-        { text: 'Item 3', icon: 'mdi-heart' },
-      ],
+            selectedHours: null,
+            selectedDays: null,
+            selectedWeek: null,
+            selectedShift: null,
+            selectedExtra: null,
+            Hours: ['Item 1', 'Item 2', 'Item 3'],
+            Days:  ['Item 1', 'Item 2', 'Item 3'],
+            Week:  ['Item 1', 'Item 2', 'Item 3'],
+            Shift: ['Item 1', 'Item 2', 'Item 3'],
+            Extra: ['Item 1', 'Item 2', 'Item 3'],
     };
     },
     methods: {
@@ -102,32 +108,13 @@ export default {
     },
 };
 </script>
-<style>
-.radio-with-border {
-    border: 1px solid #ccc;
-    /* Ajoutez la bordure autour du bouton radio */
-    border-radius: 5px;
-    /* Vous pouvez ajuster le rayon de la bordure */
-    padding: 8px;
-    /* Ajustez la marge intérieure pour l'espacement */
-    margin-bottom: 10px;
-    /* Espacez les boutons radio les uns des autres */
+<style scoped>
+.v-select{
+    padding: 0px;
 }
-
-.radio-checked {
-    border-color: gray;
-    background-color: gray;
-    color: whitesmoke;
-
-}
-
-.v-icon {
-    margin-left: 40px;
-    /* Adjust the margin as needed */
-    display: none;
-}
-
-.icon {
-    display: block;
+.custom-select {
+  border: 2px solid grey;
+  border-radius: 8px;
+  padding-bottom: 0cm;  
 }
 </style>
