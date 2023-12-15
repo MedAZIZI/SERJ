@@ -15,8 +15,8 @@
                                 </v-row>
                                 <br><br>
                                 <v-row class="justify-end">
-                                    <v-btn @click="handleButton1Click(item)" class="bluebtn">Accept</v-btn>
-                                    <v-btn @click="handleButton2Click(item)" class="bluebtn">Modify</v-btn>
+                                    <v-btn @click="handleButton1Click(item)" class="bluebtn">View</v-btn>
+                                    <v-btn @click="handleButton2Click(item)" class="bluebtn">Discard</v-btn>
                                 </v-row>
                             </v-card-text>
                         </v-col>
@@ -28,11 +28,12 @@
 </template>
   
 <script>
+import UserDataService from '../../services/UserDataService'
 export default {
     data() {
         return {
             cardItems: [
-                {
+                /*{
                     imageUrl: "src/assets/bee.png",
                     text: "Good news!!Bee Restaurant scheduled an interview for the Dish Washer job on 09/10/2024 at 12 pm.",
                 },
@@ -43,10 +44,17 @@ export default {
                 {
                     imageUrl: "src/assets/bee.png",
                     text: "Hello Lea!! We would like happily to inform you that you are accepted in Dish Washer job! Please sign the following contract here",
-                },
+                },*/
             ],
         };
     },
+    mounted() {
+        UserDataService.getConversation().then(response => {
+            console.log(response.data)
+            this.cardItems.push({imageUrl: "src/assets/bee.png", text: response.data[0].ConversationUE.content})
+
+        })
+  },
     methods: {
         handleButton1Click(item) {
             console.log('Button 1 clicked for:', item);

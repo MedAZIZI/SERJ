@@ -12,19 +12,19 @@
         </v-col>
       </v-row>
       <v-row class="d-flex align-center justify-center">
-        <v-form @submit.prevent="submitForm">
+        <v-form @submit.prevent="">
           <v-row class="d-flex align-center justify-center">
             <v-col cols="3">
-              <v-text-field class="fld" v-model="input1" @input="limitToSingleDigit" type="number" required></v-text-field>
+              <v-text-field class="fld" v-model="input1" @input="limitToSingleDigit"  required></v-text-field>
             </v-col>
             <v-col cols="3">
-              <v-text-field class="fld" v-model="input2" @input="limitToSingleDigit" type="number" required></v-text-field>
+              <v-text-field class="fld" v-model="input2" @input="limitToSingleDigit"  required></v-text-field>
             </v-col>
             <v-col cols="3">
-              <v-text-field class="fld" v-model="input3" @input="limitToSingleDigit" type="number" required></v-text-field>
+              <v-text-field class="fld" v-model="input3" @input="limitToSingleDigit"  required></v-text-field>
             </v-col>
             <v-col cols="3">
-              <v-text-field class="fld" v-model="input4" @input="limitToSingleDigit" type="number" required></v-text-field>
+              <v-text-field class="fld" v-model="input4" @input="limitToSingleDigit"  required></v-text-field>
             </v-col>
           </v-row>
         </v-form>
@@ -39,6 +39,7 @@
 </template>
 
 <script>
+import UserDataService from '../../services/UserDataService'
 export default {
   data() {
     return {
@@ -63,7 +64,16 @@ export default {
       console.log('Input 3:', this.input3);
       console.log('Input 4:', this.input4);
       console.log(this.input1+this.input2+this.input3+this.input4)
-      this.$emit('verify-submitted', this.input1+this.input2+this.input3+this.input4);
+      
+      UserDataService.verifyCode({"userCode" : this.input1+this.input2+this.input3+this.input4})
+          .then((response) => {
+              console.log(response.data);
+              console.log("code ok");
+              this.$emit('verify-submitted', this.input1+this.input2+this.input3+this.input4);
+          })
+              .catch((e) => {
+              console.log(e.status);
+              });
     },
   },
 };

@@ -10,14 +10,22 @@
                 <v-row class="d-flex align-center justify-center">
                     <h3 class="ssttre"> Your password has been changed. Please log in with your new password. </h3>
                 </v-row>
-                
+                <v-row class="d-flex align-center justify-center">
+                    <v-btn color="primary" @click="confirm">Confirm</v-btn>
+                </v-row>
             </v-col>
         </v-responsive>
     </v-container>
 </template>
     
 <script>
-
+export default {
+  methods: {
+    confirm() {
+      this.$router.push({ name: 'Login' });
+    }
+  }
+};
 </script>
 <style>
 .ssttre{

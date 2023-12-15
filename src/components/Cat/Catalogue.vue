@@ -108,6 +108,7 @@ import logo from 'src/assets/logos/icon-filter-10.jpg';
           <!-- Add more details as needed -->
         </v-card-text>
         <v-card-actions>
+          <v-btn @click="applyToJob">Apply</v-btn>
           <v-btn @click="showDetailsDialog = false">Close</v-btn>
         </v-card-actions>
       </v-card>
@@ -116,7 +117,7 @@ import logo from 'src/assets/logos/icon-filter-10.jpg';
 </template>
 import { mdiFilterMenu } from '@mdi/js';
 <script>
-
+import UserDataService from '../../services/UserDataService'
 export default {
   data() {
     return {
@@ -463,6 +464,15 @@ export default {
           (job.description && job.description.toLowerCase().includes(searchQueryLC)))
       );
     },
+
+    applyToJob() {
+      UserDataService.get().then(response => {
+            console.log(response.data)
+            UserDataService.associateJob({"userID": response.data.id, "enterpriseID": 1, content: "Good Luck !! You applied to your Event Planner job"})
+
+        })
+
+    }
 
   },
 };

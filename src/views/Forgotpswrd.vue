@@ -7,7 +7,7 @@
       <step2 @verify-submitted="handleVerify"/>
   </div>
   <div v-if="currentStep === 's3'">
-      <step3 />
+      <step3 @reset-submitted="handleReset"/>
   </div>
   <div v-if="currentStep === 's4'">
       <step4 />
@@ -44,7 +44,7 @@ export default {
         handleRequestSubmit() {
             if (this.currentStep === 's1') {
                 this.textbutton = "Verify";
-                //this.currentStep = 's2';
+                this.currentStep = 's2';
             }
         },
         handleVerify() {
@@ -52,12 +52,17 @@ export default {
                 this.currentStep = 's3';
                 console.log("verification");
         },
+        handleReset() {
+            this.textbutton = "Confirmation";
+                this.currentStep = 's4';
+                console.log("confirmation");
+        },
         nextStep() {
             // Logique pour passer à la partie suivante du formulaire
             
             if (this.currentStep === 's1') {
                 this.textbutton = "Verify";
-                //this.currentStep = 's2';
+                this.currentStep = 's2';
 
             }else if (this.currentStep === 's2') {
                 this.textbutton = "Reset Password";

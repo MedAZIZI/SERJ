@@ -101,13 +101,14 @@ export default {
             
         },
         signup() {
-            UserDataService.signup({...this.basicInfoData, jobSector: this.jobSectorData, jobType: this.jobTypeData, ...this.availabilityData })
+        console.log("signup ok")
+            UserDataService.signup({...this.basicInfoData, jobSector: this.jobSectorData, jobType: this.jobTypeData, ...this.availabilityData, type: "user" })
             .then((response) => {
                 console.log(response.data);
                 this.currentStep = 'Confirm';
             })
                 .catch((e) => {
-                console.log(e.status);
+                console.log(e);
                 });
     
         }

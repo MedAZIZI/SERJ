@@ -6,7 +6,7 @@ class TutorialDataService {
   }
 
   get() {
-    return http.get("/auth/user");
+    return http.get("/user/get");
   }
 
   signup(data: any) {
@@ -23,6 +23,22 @@ class TutorialDataService {
 
   requestResetPassword(data: any) {
     return http.post("/auth/requestResetPassword", data)
+  }
+
+  associateJob(data: any) {
+    return http.post("/user/associate", data)
+  }
+
+  verifyCode(data: any) {
+    return http.post("/auth/verifyCode", data)
+  }
+
+  resetPassword(data: any) {
+    return http.post("/auth/resetPassword", data)
+  }
+
+  getConversation(data: any) {
+    return http.get("/user/conv")
   }
 /*
   update(id: any, data: any) {
