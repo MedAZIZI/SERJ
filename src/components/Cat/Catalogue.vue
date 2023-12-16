@@ -78,12 +78,13 @@ import logo from 'src/assets/logos/icon-filter-10.jpg';
     </v-col>
  </v-row>
 
- <v-row>
+
 <h2>Popular Jobs</h2>
+
     <!-- Section: Popular Jobs -->
   <!-- Display popular jobs here -->
   <v-row>
-     <v-col v-for="job in filteredPopularJobs" :key="job.id" v-bind:style="containerStyle">
+     <v-col v-for="job in filteredPopularJobs" :key="job.id" v-bind:style="containerStyle22">
 
       <!-- Popular Job Card Content -->
      
@@ -98,7 +99,7 @@ import logo from 'src/assets/logos/icon-filter-10.jpg';
   </v-col>  
   </v-row>
   
-</v-row>
+
 
 
     <!-- Job Details Dialog -->
@@ -133,6 +134,13 @@ export default {
       containerStyle: {
       left: '8%',
       width: '327px',
+      height: '156px',
+      'flex-shrink': '0',
+      'border-radius': '35px 15px',
+      background: '#FFF',
+    },   containerStyle22: {
+      left: '20%',
+      width: '220px',
       height: '156px',
       'flex-shrink': '0',
       'border-radius': '35px 15px',
