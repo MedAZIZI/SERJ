@@ -10,50 +10,52 @@
             </v-col>
         </v-row>
 
-        <v-row>
+
+        <v-row align="center">
             <v-col cols="3">
                 <v-row class="tGr padT20">Job Name</v-row>
             </v-col>
-
-            <v-col cols="9">
-                <v-text-field class="chmap" v-model="JobName" outlined></v-text-field>
+            <v-col cols="8" class="field_Cont">
+                <input class="field" v-model="JobName" required>
             </v-col>
         </v-row>
+
         <v-row>
             <v-col cols="3">
                 <v-row class="tGr padT20">From</v-row>
             </v-col>
 
-            <v-col cols="9">
+            <v-col cols="8" style="margin-left: 10px;">
                 <v-row>
-                    <v-col cols="5"><v-text-field class="chmap" v-model="Date1" outlined></v-text-field></v-col>
-                    <v-col cols="2" class="tGr">To</v-col>
-                    <v-col cols="5"><v-text-field class="chmap" v-model="Date2" outlined></v-text-field></v-col>
+                    <v-col cols="4" class="field_ContAnn">
+                        <input class="fieldAnn" v-model="Date1"></v-col>
+                    <v-col cols="4" class="tGr"><span style="padding-left: 20px;"></span> To</v-col>
+                    <v-col cols="4" class="field_ContAnn">
+                        <input class="fieldAnn" v-model="Date2" outlined></v-col>
                 </v-row>
             </v-col>
         </v-row>
-        <v-row>
+
+        <v-row align="center">
             <v-col cols="3">
                 <v-row class="tGr padT20">Enterprise</v-row>
             </v-col>
-
-            <v-col cols="9">
-                <v-text-field class="chmap" v-model="Entereprise" outlined></v-text-field>
+            <v-col cols="8" class="field_Cont">
+                <input class="field" v-model="Entereprise" required>
             </v-col>
         </v-row>
-        <v-row>
+        <v-row align="center">
             <v-col cols="3">
                 <v-row class="tGr padT20">Location</v-row>
             </v-col>
-
-            <v-col cols="9">
-                <v-text-field class="chmap" v-model="Location" outlined></v-text-field>
+            <v-col cols="8" class="field_Cont">
+                <input class="field" v-model="Location" required>
             </v-col>
         </v-row>
 
 
 
-        <!-- </v-row> -->
+
         <v-row>
             <v-col cols="6">
                 <h2>Education</h2>
@@ -67,8 +69,8 @@
                 <v-row class="tGr padT20">Degree</v-row>
             </v-col>
 
-            <v-col cols="9">
-                <v-text-field class="chmap" v-model="JobName" outlined></v-text-field>
+            <v-col cols="8" class="field_Cont">
+                <input class="field" v-model="JobName" outlined>
             </v-col>
         </v-row>
         <v-row>
@@ -76,21 +78,31 @@
                 <v-row class="tGr padT20">From</v-row>
             </v-col>
 
-            <v-col cols="9">
+            <!-- <v-col cols="9">
                 <v-row>
                     <v-col cols="5"><v-text-field class="chmap" v-model="Date1" outlined></v-text-field></v-col>
                     <v-col cols="2" class="tGr">To</v-col>
                     <v-col cols="5"><v-text-field class="chmap" v-model="Date2" outlined></v-text-field></v-col>
                 </v-row>
+            </v-col> -->
+            <v-col cols="8" style="margin-left: 10px;">
+                <v-row>
+                    <v-col cols="4" class="field_ContAnn">
+                        <input class="fieldAnn" v-model="Date1"></v-col>
+                    <v-col cols="4" class="tGr"><span style="padding-left: 20px;"></span> To</v-col>
+                    <v-col cols="4" class="field_ContAnn">
+                        <input class="fieldAnn" v-model="Date2" outlined></v-col>
+                </v-row>
             </v-col>
         </v-row>
+
         <v-row>
             <v-col cols="3">
                 <v-row class="tGr padT20">University</v-row>
             </v-col>
 
-            <v-col cols="9">
-                <v-text-field class="chmap" v-model="Entereprise" outlined></v-text-field>
+            <v-col cols="8" class="field_Cont">
+                <input class="field" v-model="Entereprise" outlined>
             </v-col>
         </v-row>
         <v-row>
@@ -98,8 +110,8 @@
                 <v-row class="tGr padT20">Location</v-row>
             </v-col>
 
-            <v-col cols="9">
-                <v-text-field class="chmap" v-model="Locationn"></v-text-field>
+            <v-col cols="8" class="field_Cont">
+                <input class="field" v-model="Locationn">
             </v-col>
         </v-row>
         <v-row>
@@ -112,23 +124,21 @@
                 <v-row class="tGr padT20">Job type</v-row>
             </v-col>
             <v-col cols="9">
-                <v-select v-model="selectedType" :items="Type" label="Select an Item" outlined></v-select>
+                <v-select class="custom-select" v-model="selectedType" :items="Type" label="Select an Item"
+                    outlined hide-details> </v-select>
             </v-col>
         </v-row>
         <v-row>
             <v-col cols="12">
                 <v-row class="tGr padT20">Job Sector </v-row>
-                <v-row >
-                    <v-btn-toggle
-                    v-model="toggleSector"
-                    multiple
-                    class="flex-wrap"
-                    >
+                <v-row>
+                    <v-btn-toggle v-model="toggleSector" multiple class="flex-wrap">
 
-                    <v-btn v-for="(value, index) in Sector" selected-class="selected" class="mb-2 ml-2" variant="outlined" :key="index" rounded="xl" :value="value" >{{ value }}
-                    </v-btn>
-                    
-                </v-btn-toggle>
+                        <v-btn v-for="(value, index) in Sector" selected-class="selected" class="mb-2 ml-2"
+                            variant="outlined" :key="index" rounded="xl" :value="value">{{ value }}
+                        </v-btn>
+
+                    </v-btn-toggle>
                 </v-row>
             </v-col>
         </v-row>
@@ -136,13 +146,10 @@
             <v-col cols="12">
                 <v-row class="tGr padT20">Job Availability </v-row>
                 <v-row class="d-flex ">
-                    <v-btn-toggle
-                    v-model="toggleAv"
-                    multiple
-                    class="flex-wrap"
-                    >
-                    <v-btn v-for="(value, indexA) in Availability" selected-class="selected" class="mb-2 ml-2" variant="outlined" :key="index" :value="value" rounded="xl">{{ value }}
-                    </v-btn>
+                    <v-btn-toggle v-model="toggleAv" multiple class="flex-wrap">
+                        <v-btn v-for="(value, indexA) in Availability" selected-class="selected" class="mb-2 ml-2"
+                            variant="outlined" :key="index" :value="value" rounded="xl">{{ value }}
+                        </v-btn>
                     </v-btn-toggle>
                 </v-row>
             </v-col>
@@ -152,7 +159,8 @@
                 <v-row class="tGr padT20">Hours</v-row>
             </v-col>
             <v-col cols="9">
-                <v-select v-model="selectedHours" :items="Hours" label="Select an Item" outlined></v-select>
+                <v-select class="custom-select" v-model="selectedHours" :items="Hours" label="Select an Item"
+                    outlined hide-details></v-select>
             </v-col>
         </v-row>
         <v-row>
@@ -160,7 +168,8 @@
                 <v-row class="tGr padT20">Day</v-row>
             </v-col>
             <v-col cols="9">
-                <v-select v-model="selectedDay" :items="Day" label="Select an Item" outlined></v-select>
+                <v-select class="custom-select" v-model="selectedDay" :items="Day" label="Select an Item"
+                    outlined hide-details></v-select>
             </v-col>
         </v-row>
         <v-row>
@@ -168,7 +177,8 @@
                 <v-row class="tGr padT20">Week</v-row>
             </v-col>
             <v-col cols="9">
-                <v-select v-model="selectedWeek" :items="Week" label="Select an Item" outlined></v-select>
+                <v-select class="custom-select" v-model="selectedWeek" :items="Week" label="Select an Item"
+                    outlined hide-details></v-select>
             </v-col>
         </v-row>
         <v-row>
@@ -176,7 +186,8 @@
                 <v-row class="tGr padT20">Shift</v-row>
             </v-col>
             <v-col cols="9">
-                <v-select v-model="selectedShift" :items="Shift" label="Select an Item" outlined></v-select>
+                <v-select class="custom-select" v-model="selectedShift" :items="Shift" label="Select an Item"
+                    outlined hide-details></v-select>
             </v-col>
         </v-row>
         <v-row>
@@ -184,21 +195,21 @@
                 <v-row class="tGr padT20">Extra</v-row>
             </v-col>
             <v-col cols="9">
-                <v-select v-model="selectedExtra" :items="Extra" label="Select an Item" outlined></v-select>
+                <v-select class="custom-select" v-model="selectedExtra" :items="Extra" label="Select an Item"
+                    outlined hide-details></v-select>
             </v-col>
         </v-row>
         <v-row>
             <v-col cols="12">
                 <v-row class="tGr padT20">Job Location </v-row>
-                <v-row class="d-flex ">
-                    <v-btn-toggle
-                    v-model="toggleLocation"
-                    multiple
-                    class="flex-wrap"
-                    >
-                    <v-btn v-for="(value, index) in Location" selected-class="selected" class="mb-2 ml-2" variant="outlined" :key="index" :value="value" rounded="xl">{{ value }}
-                    </v-btn>
+                <v-row>
+                    <v-btn-toggle v-model="toggleLocation" multiple class="flex-wrap" style="height: auto;">
+                        <v-btn v-for="(value, index) in Location" selected-class="selected" class="mb-2 ml-2 Btgl"
+                            variant="outlined" :key="index" :value="value" rounded="xl">{{ value }}
+                        </v-btn>
+                        <br><br>
                     </v-btn-toggle>
+
                 </v-row>
             </v-col>
         </v-row>
@@ -206,30 +217,25 @@
             <v-col cols="12">
                 <v-row class="tGr padT20">Availability for Interview: </v-row>
                 <v-row class="d-flex ">
-                    <v-btn-toggle
-                    v-model="toggleIntAv"
-                    multiple
-                    class="flex-wrap"
-                    >
-                    <v-btn v-for="(value, index) in Interview" selected-class="selected" class="mb-2 ml-2" variant="outlined" :key="index" :value="value" rounded="xl">{{ value }}
-                    </v-btn>
+                    <v-btn-toggle v-model="toggleIntAv" multiple class="flex-wrap" style="height: auto;">
+                        <v-btn v-for="(value, index) in Interview" selected-class="selected" class="mb-2 ml-2 Btgl"
+                            variant="outlined" :key="index" :value="value" rounded="xl">{{ value }}
+                        </v-btn>
                     </v-btn-toggle>
                 </v-row>
             </v-col>
         </v-row>
-        <v-row  class="d-flex align-center justify-center">
+        <v-row class="d-flex align-center justify-center">
             <v-col cols="12">
                 <v-row class="d-flex align-center justify-center">
                     <h2>LinkedIn <span class="gris">(Optional)</span></h2>
-                </v-row >
+                </v-row>
                 <v-row class="d-flex align-center justify-center">
                     <v-btn @click="" class="vide"> LinkedIn profile link </v-btn>
                 </v-row>
                 <v-row class="d-flex align-center justify-center">
                     <v-btn @click="redirectToProfil" class="pdf"> Save </v-btn>
                 </v-row>
-
-                        
             </v-col>
         </v-row>
     </v-container>
@@ -272,47 +278,47 @@ export default {
             this.Availability = [response.data.Hours, response.data.Day, response.data.Week, response.data.Shift, response.data.Extra]
             this.toggleAv = [response.data.Hours, response.data.Day, response.data.Week, response.data.Shift, response.data.Extra]
             this.toggleLocation = response.data.jobLocation,
-            this.toggleIntAv = response.data.interviewAv
+                this.toggleIntAv = response.data.interviewAv
         })
     },
     methods: {
         redirectToProfil() {
-        //let data = {"jobSector" :this.toggleSector.toString()}
-        if(this.selectedType!=null) UserDataService.update({
-            "jobType": this.selectedType
-        })
-        if(this.selectedHours!=null) UserDataService.update({
-            "Hours": this.selectedHours
-        })
-        if(this.selectedDay!=null) UserDataService.update({
-            "Day": this.selectedDay
-        })
-        if(this.selectedWeek!=null) UserDataService.update({
-            "Week": this.selectedWeek
-        })
-        if(this.selectedShift!=null) UserDataService.update({
-            "Shift": this.selectedShift
-        })
-        if(this.selectedExtra!=null) UserDataService.update({
-            "Extra": this.selectedExtra
-        })
-        .then(response => {
-        console.log(response.data);
-        }).catch();
-        console.log(this.toggleLocation)
-        UserDataService.update({
-        "jobLocation": this.toggleLocation,
-        "interviewAv": this.toggleIntAv,
-        })
-        .then(response => {
-        console.log(response.data);
-        }).catch();
-        this.$router.push({ name: 'Profil' });
+            //let data = {"jobSector" :this.toggleSector.toString()}
+            if (this.selectedType != null) UserDataService.update({
+                "jobType": this.selectedType
+            })
+            if (this.selectedHours != null) UserDataService.update({
+                "Hours": this.selectedHours
+            })
+            if (this.selectedDay != null) UserDataService.update({
+                "Day": this.selectedDay
+            })
+            if (this.selectedWeek != null) UserDataService.update({
+                "Week": this.selectedWeek
+            })
+            if (this.selectedShift != null) UserDataService.update({
+                "Shift": this.selectedShift
+            })
+            if (this.selectedExtra != null) UserDataService.update({
+                "Extra": this.selectedExtra
+            })
+                .then(response => {
+                    console.log(response.data);
+                }).catch();
+            console.log(this.toggleLocation)
+            UserDataService.update({
+                "jobLocation": this.toggleLocation,
+                "interviewAv": this.toggleIntAv,
+            })
+                .then(response => {
+                    console.log(response.data);
+                }).catch();
+            this.$router.push({ name: 'Profil' });
         },
     }
 }
 </script>
-<style>
+<style scoped>
 .tGr {
     color: #B3BFC5;
     font-family: Poppins;
@@ -336,7 +342,7 @@ export default {
 }
 
 .padT20 {
-     padding-top: 20px; 
+    padding-top: 20px;
 }
 
 .khdra {
@@ -351,10 +357,12 @@ export default {
     padding-left: 10px;
     padding-right: 10px;
 }
+
 .selected {
     color: white;
     background: rgba(163, 198, 87, 0.77);
 }
+
 .pdf {
     margin-top: 10px;
     color: white;
@@ -369,4 +377,71 @@ export default {
     gap: 10px;
     flex-shrink: 0;
 }
+
+.field_Cont {
+    border-radius: 15px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #B3B4BB;
+    height: 52px;
+    padding: 10px;
+    margin: 10px;
+}
+
+.field {
+    color: var(--grey-70, #AFB0B6);
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%;
+    letter-spacing: -0.14px;
+    margin-left: 10px;
+    max-width: 300px;
+}
+
+.field_ContAnn {
+    border-radius: 15px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #B3B4BB;
+    height: 52px;
+    width: 70px;
+
+}
+
+.fieldAnn {
+    color: var(--grey-70, #AFB0B6);
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%;
+    letter-spacing: -0.14px;
+    width: 70px;
+}
+
+.v-select {
+    padding: 0px;
+    margin-bottom: 0px;
+}
+
+.custom-select {
+    border: 2px solid grey;
+    border-radius: 8px;
+    padding-bottom: 0cm;
+    background-color:rgb(239, 237, 237) ;
+    
+}
+
+.Btgl {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: 15px;
+    /* background-color: lightgray; */
+}
+.v-btn-toggle{
+    margin-top: 15px;
+}
 </style>
+
