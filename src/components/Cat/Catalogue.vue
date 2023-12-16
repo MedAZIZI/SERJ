@@ -52,48 +52,55 @@ import logo from 'src/assets/logos/icon-filter-10.jpg';
 
     <!-- Section: Suggested Jobs -->
     <v-row>
-    <v-col>
-      <h2>Suggested Jobs</h2>
-      <v-carousel cycle height="300" hide-delimiter-background show-arrows-on-hover>
+         <h2>Suggested Jobs</h2>
+      
+    <v-col >
+      <v-carousel v-bind:style="containerStyle" cycle height="100" hide-delimiter-background show-arrows-on-hover>
         <v-carousel-item v-for="job in filteredSuggestedJobs" :key="job.id">
           <!-- Individual job card content -->
           <v-row>
-            <v-col cols="12" md="4" lg="4">
+            <v-col cols="16" md="4" lg="4">
               <!-- Popular Job Card Content -->
               <v-card>
-                <v-img :src="job.logo" alt="Company Logo" width="100" height="100"></v-img>
+                <v-img :src="job.logo" alt="Company Logo" width="70" height="70"></v-img>
                 <v-card-title>{{ job.title }}</v-card-title>
                 <v-card-subtitle>{{ job.company }} - {{ job.location }}</v-card-subtitle>
                 <v-card-text>{{ job.description }}</v-card-text>
                 <v-btn @click="openDetailsDialog(job)">View Details</v-btn>
               </v-card>
             </v-col>
+            
           </v-row>
+        
         </v-carousel-item>
       </v-carousel>
+
     </v-col>
  </v-row>
 
 
+<h2>Popular Jobs</h2>
+
     <!-- Section: Popular Jobs -->
-    <v-row>
-      <v-col>
-        <h2>Popular Jobs</h2>
-        <!-- Display popular jobs here -->
-        <v-row>
-          <v-col v-for="job in filteredPopularJobs" :key="job.id" cols="12" md="4" lg="4">
-            <!-- Popular Job Card Content -->
-            <v-card>
-              <v-img :src="job.logo" alt="Company Logo" width="100" height="100"></v-img>
-              <v-card-title>{{ job.title }}</v-card-title>
-              <v-card-subtitle>{{ job.company }} - {{ job.location }}</v-card-subtitle>
-              <v-card-text>{{ job.description }}</v-card-text>
-              <v-btn @click="openDetailsDialog(job)">View Details</v-btn>
-            </v-card>
-          </v-col>
-        </v-row>
-      </v-col>
-    </v-row>
+  <!-- Display popular jobs here -->
+  <v-row>
+     <v-col v-for="job in filteredPopularJobs" :key="job.id" v-bind:style="containerStyle22">
+
+      <!-- Popular Job Card Content -->
+     
+        <v-card>
+        <v-img :src="job.logo" alt="Company Logo" width="100" height="100"></v-img>
+        <v-card-title>{{ job.title }}</v-card-title>
+        <v-card-subtitle>{{ job.company }} - {{ job.location }}</v-card-subtitle>
+        <v-card-text>{{ job.description }}</v-card-text>
+        <v-btn @click="openDetailsDialog(job)">View Details</v-btn>
+        
+    </v-card>
+  </v-col>  
+  </v-row>
+  
+
+
 
     <!-- Job Details Dialog -->
     <v-dialog v-model="showDetailsDialog" max-width="800">
@@ -125,7 +132,22 @@ export default {
       searchQuery: '',
       salaryRange: '', // Added salaryRange for filtering
       location: '', // Added location for filtering
-
+      containerStyle: {
+      left: '8%',
+      width: '327px',
+      height: '156px',
+      'flex-shrink': '0',
+      'border-radius': '35px 15px',
+      background: '#FFF',
+    },   containerStyle22: {
+      left: '20%',
+      width: '220px',
+      height: '156px',
+      'flex-shrink': '0',
+      'border-radius': '35px 15px',
+      background: '#FFF',
+    },
+    
       filteredSuggestedJobs: [
   {
     id: 10,
@@ -482,14 +504,13 @@ export default {
 /* Component-specific styles */
 .v-container {
     height: 100%;
-    background: #A3C8D3;
+    background: #579BC0;
+    position: relative; /* Add this line */
 }
 .v-autocomplete {
   width: 270px;
   height: 50px;
   background: white;
 }
-.v-carousel {
- box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
+
 </style>
