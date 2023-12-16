@@ -89,14 +89,15 @@ import logo from 'src/assets/logos/icon-filter-10.jpg';
       <!-- Popular Job Card Content -->
      
         
-      <v-card>
+      
   <v-row>
     <v-col style="display: flex; align-items: center;">
       <!-- Company Logo -->
-      <v-img :src="job.logo" alt="Company Logo" width="91px" height="91px" style="align-self: flex-start;"></v-img>
+      <v-img :src="job.logo" alt="Company Logo" width="87px" height="87px" style="align-self: flex-start;"></v-img>
       
       <!-- Job Title -->
-      <v-card-title style="margin-left: 16px;">{{ job.title }}</v-card-title>
+      <v-card-title style="margin-left: -40px; white-space: normal; line-height: 1.2;">{{ job.title }}</v-card-title>
+
     </v-col>
   </v-row>
 
@@ -104,7 +105,7 @@ import logo from 'src/assets/logos/icon-filter-10.jpg';
   <v-card-subtitle>{{ job.company }} - {{ job.location }}</v-card-subtitle>
   <v-card-text>{{ job.description }}</v-card-text>
   <v-btn @click="openDetailsDialog(job)">View Details</v-btn>
-</v-card>
+
         
     
   </v-card>  
@@ -217,7 +218,7 @@ export default {
             location: 'Lyon 9, FR',
             salaryRange: '11 Euro/Hour',
             description: 'Work on weekends',
-            logo: 'src/assets/logos/play-burger-king-png-logo-2.PNG',
+            logo: 'src/assets/logos/burger-king-logo-xel.png',
           },
           {
             id: 2,
@@ -226,7 +227,7 @@ export default {
             location: 'Lyon 7, FR',
             salaryRange: '12 Euro/Hour',
             description: '3 days/week',
-            logo: 'src/assets/logos/mcdonald-s-transparent-mcdonald-s-free-free-png.PNG',
+            logo: 'src/assets/logos/McDonalds_Logo_1968.PNG',
           },
           {
           id: 3,
