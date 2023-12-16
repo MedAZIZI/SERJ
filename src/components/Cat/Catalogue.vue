@@ -84,19 +84,24 @@ import logo from 'src/assets/logos/icon-filter-10.jpg';
     <!-- Section: Popular Jobs -->
   <!-- Display popular jobs here -->
   <v-row>
-     <v-col v-for="job in filteredPopularJobs" :key="job.id" v-bind:style="containerStyle22">
+     <v-card v-for="job in filteredPopularJobs" :key="job.id" v-bind:style="containerStyle22">
 
       <!-- Popular Job Card Content -->
      
         
-        <v-img :src="job.logo" alt="Company Logo" width="100" height="100"></v-img>
+      <v-img :src="job.logo" alt="Company Logo" width="91px" height="91px" style="align-self: flex-start;"></v-img>
+
+
         <v-card-title>{{ job.title }}</v-card-title>
-        <v-card-subtitle>{{ job.company }} - {{ job.location }}</v-card-subtitle>
+        <v-card-subtitle>
+  <span>{{ job.company }} - </span>
+  <span class="text-right">{{ job.location }}</span>
+</v-card-subtitle>
         <v-card-text>{{ job.description }}</v-card-text>
         <v-btn @click="openDetailsDialog(job)">View Details</v-btn>
         
     
-  </v-col>  
+  </v-card>  
   </v-row>
   
 
@@ -132,16 +137,16 @@ export default {
       salaryRange: '', // Added salaryRange for filtering
       location: '', // Added location for filtering
       containerStyle: {
-      left: '8%',
+      left: '3%',
       width: '327px',
       height: '156px',
       'flex-shrink': '0',
       'border-radius': '35px 15px',
       background: '#FFF',
     },   containerStyle22: {
-      left: '20%',
-      width: '220px',
-      height: '156px',
+      left: '5%',
+      width: '327px',
+      height: '320px',
       'flex-shrink': '0',
       'border-radius': '35px 15px',
       background: '#FFF',
