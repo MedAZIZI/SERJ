@@ -93,17 +93,46 @@ import logo from 'src/assets/logos/icon-filter-10.jpg';
   <v-row>
     <v-col style="display: flex; align-items: center;">
       <!-- Company Logo -->
-      <v-img :src="job.logo" alt="Company Logo" width="87px" height="87px" style="align-self: flex-start;"></v-img>
+      <v-img :src="job.logo" alt="Company Logo" width="41.263px" height="42.998px" style="align-self: flex-start;" color="Pure White"></v-img>
       
       <!-- Job Title -->
-      <v-card-title style="margin-left: -18px; white-space: normal; line-height: 1.2;">{{ job.title }}</v-card-title>
+      <v-card-title style="margin-left: -18px; white-space: normal; line-height: 1.2;
+      color: #555;
+      font-family: Poppins;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 130%; /* 18.2px */
+      letter-spacing: -0.14px;">{{ job.title }}</v-card-title>
+      
+
+
+
+
 
     </v-col>
   </v-row>
 
   <!-- Other card content -->
-  <v-card-subtitle>{{ job.company }} - {{ job.location }}</v-card-subtitle>
-  <v-card-text>{{ job.description }}</v-card-text>
+  <v-card-subtitle style="width: 150px;
+  color: #555;
+
+font-family: Poppins;
+font-size: 11px;
+font-style: normal;
+font-weight: 500;
+line-height: 150%; /* 16.5px */
+letter-spacing: -0.11px;">{{ job.company }}</v-card-subtitle>
+     <v-card-location style="opacity: 0.5;
+     color: var(--Black, #0D0D26);
+text-align: right;
+font-family: Poppins;
+font-size: 11px;
+font-style: normal;
+font-weight: 400;
+line-height: 160%; /* 17.6px */
+letter-spacing: -0.11px;" >{{ job.location }}></v-card-location>
+
   <v-btn @click="openDetailsDialog(job)">View Details</v-btn>
 
         
@@ -152,8 +181,8 @@ export default {
       background: '#FFF',
     },   containerStyle22: {
       left: '2.2%',
-      width: '350px',
-      height: '220px',
+      width: '327px',
+      height: '74px',
       'flex-shrink': '0',
       'border-radius': '35px 15px',
       background: '#FFF',
