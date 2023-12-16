@@ -89,16 +89,22 @@ import logo from 'src/assets/logos/icon-filter-10.jpg';
       <!-- Popular Job Card Content -->
      
         
+      <v-card>
+  <v-row>
+    <v-col style="display: flex; align-items: center;">
+      <!-- Company Logo -->
       <v-img :src="job.logo" alt="Company Logo" width="91px" height="91px" style="align-self: flex-start;"></v-img>
+      
+      <!-- Job Title -->
+      <v-card-title style="margin-left: 16px;">{{ job.title }}</v-card-title>
+    </v-col>
+  </v-row>
 
-
-        <v-card-title>{{ job.title }}</v-card-title>
-        <v-card-subtitle>
-  <span>{{ job.company }} - </span>
-  <span class="text-right">{{ job.location }}</span>
-</v-card-subtitle>
-        <v-card-text>{{ job.description }}</v-card-text>
-        <v-btn @click="openDetailsDialog(job)">View Details</v-btn>
+  <!-- Other card content -->
+  <v-card-subtitle>{{ job.company }} - {{ job.location }}</v-card-subtitle>
+  <v-card-text>{{ job.description }}</v-card-text>
+  <v-btn @click="openDetailsDialog(job)">View Details</v-btn>
+</v-card>
         
     
   </v-card>  
@@ -146,7 +152,7 @@ export default {
     },   containerStyle22: {
       left: '5%',
       width: '327px',
-      height: '320px',
+      height: '220px',
       'flex-shrink': '0',
       'border-radius': '35px 15px',
       background: '#FFF',
