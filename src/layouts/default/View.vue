@@ -1,64 +1,124 @@
+
 <template>
-  <v-navigation-drawer app v-model="drawer" class="pa-2">
-    <v-list>
-      <v-col>
-        <v-row class="d-flex align-center justify-center" style="padding: 20px;">
-          <v-avatar size="100">
-            <v-img class="prof" src="src/assets/flower.png" alt="Image Description">
-            </v-img>
-          </v-avatar>
-        </v-row>
-        <v-row class="d-flex align-center justify-center">
-          {{ name }}
-        </v-row>
-        <v-row class="d-flex align-center justify-center">
-          Event Planner
-        </v-row>
-
-      </v-col>
-      <div style="height: 100px;"></div>
-      <v-list-item link to="/profil">
-        <v-list-item-icon>
-          <v-icon>mdi-account-settings</v-icon>Profil
-        </v-list-item-icon>
-      </v-list-item>
-
-      <v-list-item link to="/about">
-        <v-list-item-icon>
-          <v-icon>mdi-list-box</v-icon> Applications
-        </v-list-item-icon>
-      </v-list-item>
-      <v-list-item link to="/about">
-        <v-list-item-icon>
-          <v-icon>mdi-file-check</v-icon> Proposal
-        </v-list-item-icon>
-      </v-list-item>
-      <v-list-item link to="/about">
-        <v-list-item-icon>
-          <v-icon> mdi-bag-checked</v-icon> Career Advice
-        </v-list-item-icon>
-      </v-list-item>
-      <div style="height: 200px;"></div>
-      <v-list-item link to="/settings">
-        <v-list-item-icon>
-          <v-icon>mdi-cog</v-icon> Setting
-        </v-list-item-icon>
-      </v-list-item>
-      <v-list-item link to="/about">
-        <v-list-item-icon>
-          <v-icon>mdi-logout-variant</v-icon> Logout
-        </v-list-item-icon>
-      </v-list-item>
-
-    </v-list>
-  </v-navigation-drawer>
   <v-app-bar app>
-    <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+        <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+        <v-img height="100" width="100" src="src/assets/logo serj bg.png" class="logo_lft" />
+    </v-app-bar>
+    
+    <v-navigation-drawer app v-model="drawer" class="pa-2" >
 
-    <v-img height="100" width="100" src="src/assets/logo serj bg.png" class="logo_lft" />
+      <!-- ###############  candidate part  ############### -->
+        <v-list  v-if="user === 'candidate'">
+            <v-col>
+                <v-row class="d-flex align-center justify-center" style="padding: 20px;">
+                    <v-avatar size="100">
+                        <v-img class="prof" src="src/assets/flower.png" alt="Image Description">
+                        </v-img>
+                    </v-avatar>
+                </v-row>
+                <v-row class="d-flex align-center justify-center">
+                    {{ name }}
+                </v-row>
+                <v-row class="d-flex align-center justify-center">
+                    Event Planner
+                </v-row>
 
+            </v-col>
+            <div style="height: 100px;"></div>
+            <v-list-item link to="/profil">
+                <v-list-item-icon>
+                    <v-icon>mdi-account-settings</v-icon>Profil
+                </v-list-item-icon>
+            </v-list-item>
 
-  </v-app-bar>
+            <v-list-item link to="/about">
+                <v-list-item-icon>
+                    <v-icon>mdi-list-box</v-icon> Applications
+                </v-list-item-icon>
+            </v-list-item>
+            <v-list-item link to="/about">
+                <v-list-item-icon>
+                    <v-icon>mdi-file-check</v-icon> Proposal
+                </v-list-item-icon>
+            </v-list-item>
+            <v-list-item link to="/about">
+                <v-list-item-icon>
+                    <v-icon> mdi-bag-checked</v-icon> Career Advice
+                </v-list-item-icon>
+            </v-list-item>
+            <div style="height: 200px;"></div>
+            <v-list-item link to="/settings">
+                <v-list-item-icon>
+                    <v-icon>mdi-cog</v-icon> Setting
+                </v-list-item-icon>
+            </v-list-item>
+            <v-list-item link to="/about">
+                <v-list-item-icon>
+                    <v-icon>mdi-logout-variant</v-icon> Logout
+                </v-list-item-icon>
+            </v-list-item>
+
+        </v-list>
+        <!-- ###############  employer part  ############### -->
+        <v-list  v-if="user === 'employer'">
+            <v-col>
+                <v-row class="d-flex align-center justify-center" style="padding: 20px;">
+                    <v-avatar size="100">
+                        <v-img class="prof" src="src/assets/bee.png" alt="Image Description">
+                        </v-img>
+                    </v-avatar>
+                </v-row>
+                <v-row class="d-flex align-center justify-center">
+                    {{ name }}
+                </v-row>
+                <v-row class="d-flex align-center justify-center">
+                    Event Planner
+                </v-row>
+
+            </v-col>
+            <div style="height: 100px;"></div>
+            <v-list-item link to="/profil">
+                <v-list-item-icon>
+                    <v-icon>mdi-account-settings-outline</v-icon>Company's Info
+                </v-list-item-icon>
+            </v-list-item>
+
+            <v-list-item link to="/about">
+                <v-list-item-icon>
+                    <v-icon>mdi-file-check-outline</v-icon> Proposals
+                </v-list-item-icon>
+            </v-list-item>
+            <v-list-item link to="/addJob">
+                <v-list-item-icon>
+                    <v-icon>mdi-bag-checked-outline</v-icon> Add a New Job
+                </v-list-item-icon>
+            </v-list-item>
+            <v-list-item link to="/about">
+                <v-list-item-icon>
+                    <v-icon> mdi-calendar-check</v-icon> Interview Schedule
+                </v-list-item-icon>
+            </v-list-item>
+            <v-list-item link to="/about">
+                <v-list-item-icon>
+                    <v-icon> mdi-file-check</v-icon> Candidate Applications
+                </v-list-item-icon>
+            </v-list-item>
+            
+            <div style="height: 150px;"></div>
+            <v-list-item link to="/settings">
+                <v-list-item-icon>
+                    <v-icon>mdi-cog</v-icon> Setting
+                </v-list-item-icon>
+            </v-list-item>
+            <v-list-item link to="/about">
+                <v-list-item-icon>
+                    <v-icon>mdi-logout-variant</v-icon> Logout
+                </v-list-item-icon>
+            </v-list-item>
+
+        </v-list>
+    </v-navigation-drawer>
+  
   <v-main style="padding-bottom: 70px;">
     <router-view />
 
@@ -92,6 +152,7 @@
 export default {
   data() {
     return {
+      user: "employer",// candidate or employer
       activeLink: null,
       drawer: false,
       name: "Lea Kacem",
