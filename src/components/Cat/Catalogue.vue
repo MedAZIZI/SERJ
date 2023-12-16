@@ -88,14 +88,14 @@ import logo from 'src/assets/logos/icon-filter-10.jpg';
 
       <!-- Popular Job Card Content -->
      
-        <v-card>
+        
         <v-img :src="job.logo" alt="Company Logo" width="100" height="100"></v-img>
         <v-card-title>{{ job.title }}</v-card-title>
         <v-card-subtitle>{{ job.company }} - {{ job.location }}</v-card-subtitle>
         <v-card-text>{{ job.description }}</v-card-text>
         <v-btn @click="openDetailsDialog(job)">View Details</v-btn>
         
-    </v-card>
+    
   </v-col>  
   </v-row>
   
