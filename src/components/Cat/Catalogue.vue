@@ -96,7 +96,7 @@ import logo from 'src/assets/logos/icon-filter-10.jpg';
       <v-img :src="job.logo" alt="Company Logo" width="87px" height="87px" style="align-self: flex-start;"></v-img>
       
       <!-- Job Title -->
-      <v-card-title style="margin-left: -40px; white-space: normal; line-height: 1.2;">{{ job.title }}</v-card-title>
+      <v-card-title style="margin-left: -18px; white-space: normal; line-height: 1.2;">{{ job.title }}</v-card-title>
 
     </v-col>
   </v-row>
@@ -151,8 +151,8 @@ export default {
       'border-radius': '35px 15px',
       background: '#FFF',
     },   containerStyle22: {
-      left: '5%',
-      width: '327px',
+      left: '2.2%',
+      width: '350px',
       height: '220px',
       'flex-shrink': '0',
       'border-radius': '35px 15px',
