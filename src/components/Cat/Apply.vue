@@ -67,7 +67,6 @@
 <ul>
     <li>Competitive salary (10€/h)</li>
         <li>Health insurance</li>
-            <li>Professional development opportunities</li>
                 <li>Exciting and dynamic work environment</li>
 </ul>
 
@@ -175,7 +174,7 @@ align-items: center;
 
 border-radius: 5px;
 background: #579BC0;
-left: 50; /* Center the button horizontally */
+margin-left: 16%; /* Center the button horizontally */
 
 }
 </style>
