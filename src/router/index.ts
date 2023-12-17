@@ -69,6 +69,13 @@ const routes = [
         name: 'notifications',
         component: () => import(/* webpackChunkName: "notifications" */ '@/views/notifications.vue'),
       },
+          {
+              path: 'Apply',
+             name: 'Apply',
+             component: () => import(/* webpackChunkName: "Apply" */ '@/views/Apply.vue'),
+              props: true
+           }
+        
     ],
   },
 ]

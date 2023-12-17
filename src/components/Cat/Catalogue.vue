@@ -66,7 +66,7 @@ import logo from 'src/assets/logos/icon-filter-10.jpg';
                 <v-card-title>{{ job.title }}</v-card-title>
                 <v-card-subtitle>{{ job.company }} - {{ job.location }}</v-card-subtitle>
                 <v-card-text>{{ job.description }}</v-card-text>
-                <v-btn @click="openDetailsDialog(job)">View Details</v-btn>
+                <v-btn @click="openDetailsDialog(job)">more</v-btn>
               </v-card>
             </v-col>
             
@@ -133,7 +133,7 @@ font-weight: 400;
 line-height: 160%; /* 17.6px */
 letter-spacing: -0.11px;" >{{ job.location }}></v-card-location>
 
-  <v-btn @click="openDetailsDialog(job)">View Details</v-btn>
+<v-btn @click="openDetailsDialog(job)" style="font-size: 12px; margin-left: 180px;">more</v-btn>
 
         
     
@@ -144,30 +144,23 @@ letter-spacing: -0.11px;" >{{ job.location }}></v-card-location>
 
 
     <!-- Job Details Dialog -->
-    <v-dialog v-model="showDetailsDialog" max-width="800">
-      <v-card>
-        <v-card-title>Job Details</v-card-title>
-        <v-card-subtitle><strong style="color: #FF8C00">{{ selectedJob.title }}</strong></v-card-subtitle>
-        <v-card-text>
-          <p><strong>Company: </strong>{{ selectedJob.company }}</p>
-          <p><strong>Location: </strong> {{ selectedJob.location }}</p>
-          <p><strong>Salary: </strong> {{ selectedJob.salaryRange }}</p>
-          <p><strong>Description: </strong>{{ selectedJob.description }}</p>
-          <!-- Add more details as needed -->
-        </v-card-text>
-        <v-card-actions>
-          <v-btn @click="showDetailsDialog = false">Close</v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-dialog>
+   
   </v-container>
 </template>
 import { mdiFilterMenu } from '@mdi/js';
+
+
 <script>
+import { mapState } from 'vuex';
 
 export default {
   data() {
     return {
+       name: 'Catalogue',
+ computed: {
+   ...mapState(['jobs'])
+},
+
       userName: 'Houcine',
       searchQuery: '',
       salaryRange: '', // Added salaryRange for filtering
@@ -457,6 +450,13 @@ export default {
     },
  },
   methods: {
+        viewJob(job) {
+     this.$router.push({ name: 'Apply', params: { job: job } })
+   },
+
+    viewJobDetails(job) {
+        this.$router.push({ name: 'Apply', params: { job } });
+    },
     openFilterDialog() {
       this.showFilterDialog = true;
     },
@@ -476,8 +476,8 @@ export default {
       this.closeFilterDialog();
     },
     openDetailsDialog(job) {
-      this.selectedJob = job;
-      this.showDetailsDialog = true;
+      // Instead of setting selectedJob directly, you can navigate to the Apply component
+      this.$router.push({ name: 'Apply', params: { job } });
     },
 
     getAutocompleteItems() {
