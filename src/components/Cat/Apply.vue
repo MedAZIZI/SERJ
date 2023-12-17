@@ -46,29 +46,35 @@
   
    
      </div>
+
      <div class="description-row">
     <h2>Description :</h2>
     <p>
       We are seeking a detail-oriented and creative Event Planner to join our
       team. The ideal candidate will be responsible for coordinating and
-      executing a wide range of events, from corporate meetings to weddings. The
-      Event Planner will work closely with clients to understand their needs,
-      plan logistics, and ensure that each event is a memorable and successful
+      executing a wide range of events, from corporate meetings to weddings. 
       experience.
       <h3>Responsibilities:</h3>
-      <p>
+
 <ul>
 <li>Collaborate with clients to understand their event objectives, budget, and preferences.</li>
-Plan and organize various events, including conferences, weddings, parties, and corporate meetings.
-Source and negotiate with vendors, suppliers, and venues to secure the best services within budget constraints.
-Coordinate logistics such as catering, decorations, audio-visual equipment, and transportation.
-Create detailed event timelines and schedules to ensure smooth execution.
-Manage on-site coordination during events to handle any issues and ensure everything runs according to plan.
-    </ul>
+<li>Plan and organize various events, including conferences, weddings, parties, and corporate meetings.</li>
+<li>Source and negotiate with vendors, suppliers, and venues to secure the best services within budget constraints.</li>
+
+</ul>
+<h3>Benefits:</h3>
+
+<ul>
+    <li>Competitive salary (10€/h)</li>
+        <li>Health insurance</li>
+            <li>Professional development opportunities</li>
+                <li>Exciting and dynamic work environment</li>
+</ul>
+
 </p>
-</p>
+<button class="apply-button" @click="applyNow">APPLY NOW</button>
+
   </div>
-   
   </template>
   
   <script>
@@ -81,6 +87,9 @@ Manage on-site coordination during events to handle any issues and ensure everyt
       }
     },
     methods: {
+        applyNow() {
+      console.log('Applying for the job:', this.job.title);
+    }
      
     }
   };
@@ -155,5 +164,18 @@ Manage on-site coordination during events to handle any issues and ensure everyt
 
 .description-row {
   margin-left: 20px; /* Adjust the margin as needed */
+}
+
+.apply-button {
+    display: flex;
+width: 250px;
+padding: 16px 48px;
+justify-content: center;
+align-items: center;
+
+border-radius: 5px;
+background: #579BC0;
+left: 50; /* Center the button horizontally */
+
 }
 </style>
