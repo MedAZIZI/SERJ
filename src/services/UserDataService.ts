@@ -5,8 +5,11 @@ class TutorialDataService {
     return http.get("/auth");
   }
 
-  get() {
-    return http.get("/user/get");
+  getUser(id: any) {
+    return http.get(`/user/get/${id}`);
+  }
+  getEntreprise(id: any) {
+    return http.get(`/enterprise/get/${id}`);
   }
 
   signup(data: any) {
@@ -18,7 +21,7 @@ class TutorialDataService {
   }
 
   update(data: any) {
-    return http.put("/auth/editUser", data);
+    return http.put("/user/editUser", data);
   }
 
   requestResetPassword(data: any) {
@@ -39,6 +42,11 @@ class TutorialDataService {
 
   getConversation(data: any) {
     return http.get("/user/conv")
+  }
+  logout() {
+    localStorage.removeItem('userType');
+    localStorage.removeItem('userId');
+    return http.post("auth/logout")
   }
 /*
   update(id: any, data: any) {

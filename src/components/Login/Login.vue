@@ -54,9 +54,12 @@
               </v-row>
               <br><br><br><br><br>
               <v-row class="d-flex align-center justify-center">
-                Haven't an account?
-                <v-btn class="sender" to="/registration">
-                  Register
+                Don't have an account?
+                <v-btn class="sender mb-2" to="/registration">
+                  Register as Candidate
+                </v-btn>
+                <v-btn class="sender" to="/compreg">
+                  Register as Employer
                 </v-btn>
               </v-row>
 
@@ -85,22 +88,36 @@ export default {
     };
   },
   methods: {
-    login() {
+    async login() {
+  try {
+    const response = await UserDataService.login({ "email": this.email, "password": this.password })
+    console.log(response.data); // Succès de la connexion
+    localStorage.setItem('userId', response.data.userId);
+          localStorage.setItem('userType', response.data.userType);
+          if (response.status == 200) this.$router.push({ name: 'Profil' })
+  } catch (error) {
+    console.error(error.response.data); // Erreur d'authentification
+  }
+},
+   /* async login() {
       // Ajoutez votre logique de connexion ici
       alert('Nom d\'utilisateur:' + this.email)
       console.log('Nom d\'utilisateur:', this.email);
       console.log('Mot de passe:', this.password);
-      UserDataService.login({ "email": this.email, "password": this.password })
+      const response = await UserDataService.login({ "email": this.email, "password": this.password })
         .then((response) => {
           console.log(response.data);
           // Redirigez l'utilisateur après la connexion réussie
-          localStorage.setItem('userToken', response.data.token);
+          //localStorage.setItem('userToken', response.data.token);
+          //localStorage.setItem('userType', response.data.token.userType);
+          localStorage.setItem('userId', response.data.userId);
+          localStorage.setItem('userType', response.data.userType);
           if (response.status == 200) this.$router.push({ name: 'Profil' })
         })
         .catch((e) => {
           console.log(e);
         });
-    },
+    },*/
     redirectToSignup() {
       this.$router.push({ name: 'Registration' });
     },

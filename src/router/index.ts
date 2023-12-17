@@ -18,16 +18,19 @@ const routes = [
         path: 'registration',
         name: 'Registration', 
         component: () => import(/* webpackChunkName: "registration" */ '@/views/Registeration.vue'),
+        meta: { requiresNotAuth: true }
       },
       {
         path: 'login',
         name: 'Login', 
         component: () => import(/* webpackChunkName: "login" */ '@/views/Login.vue'),
+        meta: { requiresNotAuth: true }
       },
       {
         path: 'frgtPswrd',
         name: 'FrgtPswrd', 
         component: () => import(/* webpackChunkName: "FrgtPswrd" */ '@/views/Forgotpswrd.vue'),
+        meta: { requiresNotAuth: true }
       },
       {
         path: 'map',
@@ -38,41 +41,49 @@ const routes = [
         path: 'profil',
         name: 'Profil', 
         component: () => import(/* webpackChunkName: "profil" */ '@/views/Profil.vue'),
+        meta: { requiresAuth: true }
       },
       {
         path: 'editprofil',
         name: 'EditProfil', 
         component: () => import(/* webpackChunkName: "editprofil" */ '@/views/EditProfil.vue'),
+        meta: { requiresAuth: true }
       },
       {
         path: 'catalogue',
         name: 'Catalogue', 
         component: () => import(/* webpackChunkName: "catalogue" */ '@/views/Catalogue.vue'),
+        meta: { requiresAuth: true }
       },
       {
         path: 'compreg',
         name: 'CompReg', 
         component: () => import(/* webpackChunkName: "compreg" */ '@/views/Company/Registration.vue'),
+        meta: { requiresNotAuth: true }
       },
       {
         path: 'addJob',
         name: 'AddJob', 
         component: () => import(/* webpackChunkName: "addJob" */ '@/views/Company/AddJob.vue'),
+        meta: { requiresAuth: true }
       },
       {
         path: 'message',
         name: 'Message', 
         component: () => import(/* webpackChunkName: "message" */ '@/views/Message.vue'),
+        meta: { requiresAuth: true }
       },
       {
         path: 'notifications',
         name: 'notifications',
         component: () => import(/* webpackChunkName: "notifications" */ '@/views/notifications.vue'),
+        meta: { requiresAuth: true }
       },
       {
         path: 'settings',
         name: 'Settings',
         component: () => import(/* webpackChunkName: "settings" */ '@/views/settings/Settings.vue'),
+        meta: { requiresAuth: true }
       },
       {
         path: 'about',
@@ -103,5 +114,26 @@ const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
 })
-
+router.beforeEach((to, from, next) => {
+  const isAuthenticated = localStorage.getItem('userId');
+  
+  if (to.matched.some(route => route.meta.requiresAuth) && !isAuthenticated) {
+    // Redirigez l'utilisateur vers la page de connexion s'il n'est pas connecté
+    next('/login');
+  } else {
+    // Laissez l'utilisateur accéder à la route demandée
+    next();
+  }
+});
+router.beforeEach((to, from, next) => {
+  const isAuthenticated = localStorage.getItem('userId');
+  
+  if (to.matched.some(route => route.meta.requiresNotAuth) && isAuthenticated) {
+    // Redirigez l'utilisateur vers la page de connexion s'il n'est pas connecté
+    next('/profil');
+  } else {
+    // Laissez l'utilisateur accéder à la route demandée
+    next();
+  }
+});
 export default router

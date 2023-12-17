@@ -61,7 +61,7 @@
                 <h2>Experience</h2>
             </v-col>
             <v-col cols="6" class="text-right">
-                <h2 class="see"> see all</h2>
+                <h2 class="see">See all</h2>
             </v-col>
         </v-row>
         <v-row class="exp">
@@ -94,7 +94,7 @@
                 <h2>Education</h2>
             </v-col>
             <v-col cols="6" class="text-right">
-                <h2 class="see"> see all</h2>
+                <h2 class="see"> See all</h2>
             </v-col>
         </v-row>
         <v-row class="exp">
@@ -241,7 +241,9 @@ export default {
         };
     },
     mounted() {
-        UserDataService.get().then(response => {
+        console.log(localStorage.getItem('userId'))
+        if(localStorage.getItem('userType')== 'user') {
+        UserDataService.getUser(localStorage.getItem('userId')).then(response => {
             console.log(response.data)
             this.results = response.data,
             console.log(this.results)
@@ -254,6 +256,22 @@ export default {
                 Interview: this.results.interviewAv,
             }
         })
+    }
+    else if(localStorage.getItem('userType')== 'entreprise') {
+        UserDataService.getEntreprise(localStorage.getItem('userId')).then(response => {
+            console.log(response.data)
+            this.results = response.data,
+            console.log(this.results)
+            this.name = this.results.prenom+" "+this.results.nom,
+            this.job_Pref = {
+                Type: [this.results.jobType],
+                Sector: [this.results.jobSector],
+                Availability: [this.results.Hours, this.results.Day, this.results.Week, this.results.Shift, this.results.Extra],
+                Location: this.results.jobLocation,
+                Interview: this.results.interviewAv,
+            }
+        })
+    }
   },
     methods: {
         redirectToEdit() {
@@ -331,7 +349,7 @@ export default {
 .edt {
     color: var(--grey-70, #AFB0B6);
     text-align: right;
-    font-family: Alice;
+    font-family: Alice, sans-serif;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
@@ -351,7 +369,7 @@ export default {
 
 .see {
     color: var(--grey-70, #AFB0B6);
-    font-family: Poppins;
+    font-family: Poppins, sans-serif;
     font-style: normal;
     font-weight: 400;
     line-height: 160%;

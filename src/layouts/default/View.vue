@@ -1,6 +1,6 @@
 
 <template>
-  <v-app-bar app>
+  <v-app-bar app >
         <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
         <v-img height="100" width="100" src="src/assets/logo serj bg.png" class="logo_lft" />
     </v-app-bar>
@@ -8,7 +8,7 @@
     <v-navigation-drawer app v-model="drawer" class="pa-2" >
 
       <!-- ###############  candidate part  ############### -->
-        <v-list  v-if="user === 'candidate'">
+        <v-list  v-if="user === 'user'">
             <v-col>
                 <v-row class="d-flex align-center justify-center" style="padding: 20px;">
                     <v-avatar size="100">
@@ -52,7 +52,7 @@
                     <v-icon>mdi-cog</v-icon> Setting
                 </v-list-item-icon>
             </v-list-item>
-            <v-list-item link to="/about">
+            <v-list-item  link @click="logout">
                 <v-list-item-icon>
                     <v-icon>mdi-logout-variant</v-icon> Logout
                 </v-list-item-icon>
@@ -110,7 +110,7 @@
                     <v-icon>mdi-cog</v-icon> Setting
                 </v-list-item-icon>
             </v-list-item>
-            <v-list-item link to="/about">
+            <v-list-item link @click="logout()">
                 <v-list-item-icon>
                     <v-icon>mdi-logout-variant</v-icon> Logout
                 </v-list-item-icon>
@@ -124,7 +124,7 @@
 
   </v-main>
 
-  <v-bottom-nav v-model="activeLink" :value.sync="activeLink" app fixed class="barBot" >
+  <v-bottom-nav v-model="activeLink" :value.sync="activeLink" app fixed class="barBot"  v-if="isLoggedin()">
     <br>
     <v-row class="d-flex align-center justify-center bar ">
 
@@ -149,20 +149,37 @@
 </template>
 
 <script>
+import UserDataService from '../../services/UserDataService'
 export default {
   data() {
     return {
-      user: "employer",// candidate or employer
+      user: "user",// candidate or employer
       activeLink: null,
       drawer: false,
-      name: "Lea Kacem",
-
+      name: "Default Name",
+      
     };
+  },
+  mounted() {
+    console.log(localStorage.getItem('userType'))
+    if(localStorage.getItem('userToken')){
+        UserDataService.get().then(response => {
+            console.log(response.data)
+            this.name = response.data.prenom+" "+response.data.nom
+        })
+      }
   },
   methods: {
     navigateTo(route) {
       this.$router.push(route);
     },
+    logout() {
+      UserDataService.logout()
+      this.$router.push('/login');
+    },
+    isLoggedin() {
+      return localStorage.getItem('userToken')
+    }
   },
 };
 </script>

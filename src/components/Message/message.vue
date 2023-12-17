@@ -1,6 +1,6 @@
 <template class="cont">
     <v-container>
-        <v-row>
+        <v-row v-if="cardItems.length > 0">
             <v-col v-for="(item, index) in cardItems" :key="index" cols="12" md="4">
                 <v-card class="crd">
                     <v-row class="insideCard">
@@ -22,6 +22,12 @@
                         </v-col>
                     </v-row>
                 </v-card>
+            </v-col>
+        </v-row>
+        <v-row v-else>
+            <!-- Si cardItems est vide, affichez un message -->
+            <v-col cols="12" class="text-center">
+                <p>Aucun message à afficher pour le moment. Vous pouvez postuler à des offres dans le catalogue.</p>
             </v-col>
         </v-row>
     </v-container>

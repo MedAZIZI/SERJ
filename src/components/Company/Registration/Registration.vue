@@ -19,7 +19,7 @@
                 <v-card-text>
 
 
-                    <form @submit.prevent="submitBasicInfo">
+                    <form @submit.prevent="signup">
 
 
                         <br>
@@ -63,7 +63,7 @@
                         </v-row>
                         <br>
                         <v-row class="btn_Cont align-center justify-center">
-                            <button type="submit">Next ></button>
+                            <button type="submit">Register ></button>
                         </v-row>
                     </form>
                     <br>
@@ -77,19 +77,19 @@
 </template>
   
 <script>
+import UserDataService from '@/services/UserDataService';
 export default {
     data() {
         return {
             CompInfo: {
-                C_Name: '',
-                email: '',
-                name: '',
-                tel: '',
-                C_location: '',
-                Website: '',
-                password: '',
-                Conf_password: '',
-                name: '',
+                C_Name: 'sephora',
+                email: 'sephora@email.com',
+                name: 'mon nom',
+                tel: '00000000',
+                C_location: 'Lyon',
+                Website: 'site.fr',
+                password: 'pass',
+                Conf_password: 'pass',
             },
         };
     },
@@ -101,6 +101,27 @@ export default {
         },
         RedirectToLogin(){
             this.$router.push({ name: 'Login' });
+        },
+        signup() {
+            console.log(this.CompInfo)
+            UserDataService.signup(
+                {enterpriseName : this.CompInfo.C_Name,
+                enterpriseRepresentative: this.CompInfo.name,
+                phoneNumber: this.CompInfo.tel,
+                location: this.CompInfo.C_location,
+                website: this.CompInfo.Website,
+                email: this.CompInfo.email,
+                password: this.CompInfo.password,
+                type: "entreprise"
+            })
+            .then((response) => {
+                console.log(response.data);
+                this.$router.push({ name: 'Login' });
+            })
+                .catch((e) => {
+                console.log(e);
+            });
+    
         }
     },
 };
