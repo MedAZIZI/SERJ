@@ -271,7 +271,8 @@ export default {
         };
     },
     mounted() {
-        UserDataService.get().then(response => {
+
+        UserDataService.getUser(localStorage.getItem('userId')).then(response => {
             console.log(response.data)
             this.selectedType = response.data.jobType
             this.toggleSector = response.data.jobSector

@@ -77,16 +77,16 @@
 export default {
     data() {
         return {
-            selectedHours: null,
-            selectedDays: null,
-            selectedWeek: null,
-            selectedShift: null,
-            selectedExtra: null,
-            Hours: ['Item 1', 'Item 2', 'Item 3'],
-            Days:  ['Item 1', 'Item 2', 'Item 3'],
-            Week:  ['Item 1', 'Item 2', 'Item 3'],
-            Shift: ['Item 1', 'Item 2', 'Item 3'],
-            Extra: ['Item 1', 'Item 2', 'Item 3'],
+            selectedHours: 'Flexible',
+            selectedDays: 'Flexible',
+            selectedWeek: 'Flexible',
+            selectedShift: 'Flexible',
+            selectedExtra: 'Paid overtime',
+            Hours: ['Flexible', 'Full time', 'Part time'],
+            Days:  ['Flexible', 'Early morning', 'Late morning', 'Early evening', 'Late evening', 'Night'],
+            Week:  ['Flexible', 'M-T-W-T-F', 'Saturday', 'Sunday', 'Holidays'],
+            Shift: ['Flexible', 'Long break', 'Small break', 'Continuous'],
+            Extra: ['Paid overtime', 'On call', 'Working time reduction (RTT)'],
     };
     },
     methods: {
@@ -99,11 +99,11 @@ export default {
         Save() {
             // You can perform validation here if needed
             // Emit an event or pass the contactInfo data to the parent component
-            this.$emit('Avaibalility-info-submitted', /*this.AvailabilityInfo*/{  "Hours": "8",
-                                                        "Day": "Monday",
-                                                        "Week": "1",
-                                                        "Shift": "Morning",
-                                                        "Extra": "None"});
+            this.$emit('Avaibalility-info-submitted', /*this.AvailabilityInfo*/{  "Hours": this.selectedHours,
+                                                        "Day": this.selectedDays,
+                                                        "Week": this.selectedWeek,
+                                                        "Shift": this.selectedShift,
+                                                        "Extra": this.selectedExtra});
         },
     },
 };
