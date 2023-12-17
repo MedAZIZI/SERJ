@@ -1,7 +1,7 @@
 
 <template>
   <v-app-bar app >
-        <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+        <v-app-bar-nav-icon @click.stop="drawer = !drawer" v-if="isLoggedin()"></v-app-bar-nav-icon>
         <v-img height="100" width="100" src="src/assets/logo serj bg.png" class="logo_lft" />
     </v-app-bar>
     
@@ -153,7 +153,7 @@ import UserDataService from '../../services/UserDataService'
 export default {
   data() {
     return {
-      user: "user",// candidate or employer
+      user: localStorage.getItem('userType'),// candidate or employer
       activeLink: null,
       drawer: false,
       name: "Default Name",
@@ -162,7 +162,7 @@ export default {
   },
   mounted() {
     console.log(localStorage.getItem('userType'))
-    if(localStorage.getItem('userToken')){
+    if(localStorage.getItem('userType')){
         UserDataService.get().then(response => {
             console.log(response.data)
             this.name = response.data.prenom+" "+response.data.nom
@@ -178,7 +178,7 @@ export default {
       this.$router.push('/login');
     },
     isLoggedin() {
-      return localStorage.getItem('userToken')
+      return localStorage.getItem('userType')
     }
   },
 };
