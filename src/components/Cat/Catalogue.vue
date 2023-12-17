@@ -66,7 +66,7 @@ import logo from 'src/assets/logos/icon-filter-10.jpg';
                 <v-card-title>{{ job.title }}</v-card-title>
                 <v-card-subtitle>{{ job.company }} - {{ job.location }}</v-card-subtitle>
                 <v-card-text>{{ job.description }}</v-card-text>
-                <v-btn @click="openDetailsDialog(job)">View Details</v-btn>
+                <v-btn @click="openDetailsDialog(job)">more</v-btn>
               </v-card>
             </v-col>
             
@@ -84,65 +84,98 @@ import logo from 'src/assets/logos/icon-filter-10.jpg';
     <!-- Section: Popular Jobs -->
   <!-- Display popular jobs here -->
   <v-row>
-     <v-col v-for="job in filteredPopularJobs" :key="job.id" v-bind:style="containerStyle22">
+     <v-card v-for="job in filteredPopularJobs" :key="job.id" v-bind:style="containerStyle22">
 
       <!-- Popular Job Card Content -->
      
-        <v-card>
-        <v-img :src="job.logo" alt="Company Logo" width="100" height="100"></v-img>
-        <v-card-title>{{ job.title }}</v-card-title>
-        <v-card-subtitle>{{ job.company }} - {{ job.location }}</v-card-subtitle>
-        <v-card-text>{{ job.description }}</v-card-text>
-        <v-btn @click="openDetailsDialog(job)">View Details</v-btn>
         
-    </v-card>
-  </v-col>  
+      
+  <v-row>
+    <v-col style="display: flex; align-items: center;">
+      <!-- Company Logo -->
+      <v-img :src="job.logo" alt="Company Logo" width="41.263px" height="42.998px" style="align-self: flex-start;" color="Pure White"></v-img>
+      
+      <!-- Job Title -->
+      <v-card-title style="margin-left: -18px; white-space: normal; line-height: 1.2;
+      color: #555;
+      font-family: Poppins;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 130%; /* 18.2px */
+      letter-spacing: -0.14px;">{{ job.title }}</v-card-title>
+      
+
+
+
+
+
+    </v-col>
+  </v-row>
+
+  <!-- Other card content -->
+  <v-card-subtitle style="width: 150px;
+  color: #555;
+
+font-family: Poppins;
+font-size: 11px;
+font-style: normal;
+font-weight: 500;
+line-height: 150%; /* 16.5px */
+letter-spacing: -0.11px;">{{ job.company }}</v-card-subtitle>
+     <v-card-location style="opacity: 0.5;
+     color: var(--Black, #0D0D26);
+text-align: right;
+font-family: Poppins;
+font-size: 11px;
+font-style: normal;
+font-weight: 400;
+line-height: 160%; /* 17.6px */
+letter-spacing: -0.11px;" >{{ job.location }}></v-card-location>
+
+<v-btn @click="openDetailsDialog(job)" style="font-size: 12px; margin-left: 180px;">more</v-btn>
+
+        
+    
+  </v-card>  
   </v-row>
   
 
 
 
     <!-- Job Details Dialog -->
-    <v-dialog v-model="showDetailsDialog" max-width="800">
-      <v-card>
-        <v-card-title>Job Details</v-card-title>
-        <v-card-subtitle><strong style="color: #FF8C00">{{ selectedJob.title }}</strong></v-card-subtitle>
-        <v-card-text>
-          <p><strong>Company: </strong>{{ selectedJob.company }}</p>
-          <p><strong>Location: </strong> {{ selectedJob.location }}</p>
-          <p><strong>Salary: </strong> {{ selectedJob.salaryRange }}</p>
-          <p><strong>Description: </strong>{{ selectedJob.description }}</p>
-          <!-- Add more details as needed -->
-        </v-card-text>
-        <v-card-actions>
-          <v-btn @click="applyToJob">Apply</v-btn>
-          <v-btn @click="showDetailsDialog = false">Close</v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-dialog>
+   
   </v-container>
 </template>
 import { mdiFilterMenu } from '@mdi/js';
+
+
 <script>
+import { mapState } from 'vuex';
 import UserDataService from '../../services/UserDataService'
 export default {
   data() {
     return {
+       name: 'Catalogue',
+ computed: {
+   ...mapState(['jobs'])
+},
+
       userName: 'Houcine',
       searchQuery: '',
       salaryRange: '', // Added salaryRange for filtering
       location: '', // Added location for filtering
       containerStyle: {
-      left: '8%',
+      left: '10%',
       width: '327px',
       height: '156px',
       'flex-shrink': '0',
       'border-radius': '35px 15px',
       background: '#FFF',
     },   containerStyle22: {
-      left: '20%',
-      width: '220px',
-      height: '156px',
+      left: '10%',
+      width: '327px',
+      height: '100px',
       'flex-shrink': '0',
       'border-radius': '35px 15px',
       background: '#FFF',
@@ -207,7 +240,7 @@ export default {
             location: 'Lyon 9, FR',
             salaryRange: '11 Euro/Hour',
             description: 'Work on weekends',
-            logo: 'src/assets/logos/play-burger-king-png-logo-2.PNG',
+            logo: 'src/assets/logos/burger-king-logo-xel.png',
           },
           {
             id: 2,
@@ -216,7 +249,7 @@ export default {
             location: 'Lyon 7, FR',
             salaryRange: '12 Euro/Hour',
             description: '3 days/week',
-            logo: 'src/assets/logos/mcdonald-s-transparent-mcdonald-s-free-free-png.PNG',
+            logo: 'src/assets/logos/McDonalds_Logo_1968.PNG',
           },
           {
           id: 3,
@@ -417,6 +450,13 @@ export default {
     },
  },
   methods: {
+        viewJob(job) {
+     this.$router.push({ name: 'Apply', params: { job: job } })
+   },
+
+    viewJobDetails(job) {
+        this.$router.push({ name: 'Apply', params: { job } });
+    },
     openFilterDialog() {
       this.showFilterDialog = true;
     },
@@ -436,8 +476,8 @@ export default {
       this.closeFilterDialog();
     },
     openDetailsDialog(job) {
-      this.selectedJob = job;
-      this.showDetailsDialog = true;
+      // Instead of setting selectedJob directly, you can navigate to the Apply component
+      this.$router.push({ name: 'Apply', params: { job } });
     },
 
     getAutocompleteItems() {
