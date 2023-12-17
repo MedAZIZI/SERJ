@@ -106,6 +106,13 @@ const routes = [
         component: () => import(/* webpackChunkName: "help" */ '@/views/settings/Help.vue'),
       },
       
+          {
+              path: 'Apply',
+             name: 'Apply',
+             component: () => import(/* webpackChunkName: "Apply" */ '@/views/Apply.vue'),
+              props: true
+           }
+        
     ],
   },
 ]
