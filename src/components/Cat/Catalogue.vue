@@ -166,16 +166,16 @@ export default {
       salaryRange: '', // Added salaryRange for filtering
       location: '', // Added location for filtering
       containerStyle: {
-      left: '3%',
+      left: '10%',
       width: '327px',
       height: '156px',
       'flex-shrink': '0',
       'border-radius': '35px 15px',
       background: '#FFF',
     },   containerStyle22: {
-      left: '2.2%',
+      left: '10%',
       width: '327px',
-      height: '74px',
+      height: '100px',
       'flex-shrink': '0',
       'border-radius': '35px 15px',
       background: '#FFF',

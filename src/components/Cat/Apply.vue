@@ -42,16 +42,16 @@
       </div>
       </div>
   
-      <!-- Display job reviews (you can customize this based on your data structure) -->
-      <div v-if="job.reviews && job.reviews.length" class="job-reviews">
-        <h2>Reviews</h2>
-        <ul>
-          <li v-for="(review, index) in job.reviews" :key="index">{{ review }}</li>
-        </ul>
-      </div>
+
   
    
     </div>
+    <div class="section-buttons">
+        <button @click="updateActiveSection('Description')">Description</button>
+        <button @click="updateActiveSection('Requirements')">Requirements</button>
+        <button @click="updateActiveSection('About')">About</button>
+        <button @click="updateActiveSection('Reviews')">Reviews</button>
+      </div>
   </template>
   
   <script>
