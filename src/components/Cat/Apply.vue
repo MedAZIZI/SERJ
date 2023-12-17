@@ -45,13 +45,30 @@
 
   
    
-    </div>
-    <div class="section-buttons">
-        <button @click="updateActiveSection('Description')">Description</button>
-        <button @click="updateActiveSection('Requirements')">Requirements</button>
-        <button @click="updateActiveSection('About')">About</button>
-        <button @click="updateActiveSection('Reviews')">Reviews</button>
-      </div>
+     </div>
+     <div class="description-row">
+    <h2>Description :</h2>
+    <p>
+      We are seeking a detail-oriented and creative Event Planner to join our
+      team. The ideal candidate will be responsible for coordinating and
+      executing a wide range of events, from corporate meetings to weddings. The
+      Event Planner will work closely with clients to understand their needs,
+      plan logistics, and ensure that each event is a memorable and successful
+      experience.
+      <h3>Responsibilities:</h3>
+      <p>
+<ul>
+<li>Collaborate with clients to understand their event objectives, budget, and preferences.</li>
+Plan and organize various events, including conferences, weddings, parties, and corporate meetings.
+Source and negotiate with vendors, suppliers, and venues to secure the best services within budget constraints.
+Coordinate logistics such as catering, decorations, audio-visual equipment, and transportation.
+Create detailed event timelines and schedules to ensure smooth execution.
+Manage on-site coordination during events to handle any issues and ensure everything runs according to plan.
+    </ul>
+</p>
+</p>
+  </div>
+   
   </template>
   
   <script>
@@ -134,5 +151,9 @@
 
 .company-frame3 {
   right: 15%;
+}
+
+.description-row {
+  margin-left: 20px; /* Adjust the margin as needed */
 }
 </style>
