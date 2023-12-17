@@ -10,7 +10,7 @@ import App from './App.vue';
 
 
 import Vue from 'vue';
-
+import 'vuetify/dist/vuetify.min.css';
 
 import '@mdi/font/css/materialdesignicons.min.css';
 
