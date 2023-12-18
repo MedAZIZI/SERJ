@@ -36,7 +36,7 @@
       <div class="company-frame3">
         <p style="margin-left: 12px">
         
-            <strong>{{}}</strong> {{ job.aboutCompany }}
+            <strong>10€/h</strong> {{ job.aboutCompany }}
          
         </p>
       </div>
@@ -98,10 +98,10 @@
       UserDataService.getUser(localStorage.getItem('userId')).then(response => {
             console.log(response.data)
             UserDataService.associateJob({"userID": response.data.id, "enterpriseID": 1, content: "Good Luck !! You applied to your Event Planner job", recipient: "user"})
-            UserDataService.associateJob({"userID": response.data.id, "enterpriseID": 1, content: `${response.data.nom} has applied to your Event Planner job`, recipient: "entreprise"})
-
+            //UserDataService.associateJob({"userID": response.data.id, "enterpriseID": 1, content: `${response.data.nom} has applied to your Event Planner job`, recipient: "entreprise"})
+this.$router.push({ name: 'Profil'});
         })
-      this.$router.push({ name: 'ApplyModal'});
+      
       //this.$router.push({ name: 'Profil', params: { job: this.job } });
     }
      
