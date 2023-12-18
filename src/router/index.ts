@@ -74,7 +74,14 @@ const routes = [
              name: 'Apply',
              component: () => import(/* webpackChunkName: "Apply" */ '@/views/Apply.vue'),
               props: true
-           }
+           },
+           {
+            path: 'ApplyModal',
+           name: 'ApplyModal',
+           component: () => import(/* webpackChunkName: "ApplyModal" */ '@/views/ApplyModal.vue'),
+            props: true
+         }
+         
         
     ],
   },

@@ -73,12 +73,14 @@
 </p>
 <button class="apply-button" @click="applyNow">APPLY NOW</button>
 
+
   </div>
   </template>
   
+
   <script>
   export default {
-
+ 
     props: {
       job: {
         type: Object,
@@ -87,7 +89,8 @@
     },
     methods: {
         applyNow() {
-      console.log('Applying for the job:', this.job.title);
+            console.log('Applying for the job:', this.job.title);
+      this.$router.push({ name: 'Profil', params: { job: this.job } });
     }
      
     }
