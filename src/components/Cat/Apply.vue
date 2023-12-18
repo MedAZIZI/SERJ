@@ -45,18 +45,42 @@
 
   
    
-    </div>
-    <div class="section-buttons">
-        <button @click="updateActiveSection('Description')">Description</button>
-        <button @click="updateActiveSection('Requirements')">Requirements</button>
-        <button @click="updateActiveSection('About')">About</button>
-        <button @click="updateActiveSection('Reviews')">Reviews</button>
-      </div>
+     </div>
+
+     <div class="description-row">
+    <h2>Description :</h2>
+    <p>
+      We are seeking a detail-oriented and creative Event Planner to join our
+      team. The ideal candidate will be responsible for coordinating and
+      executing a wide range of events, from corporate meetings to weddings. 
+      experience.
+      <h3>Responsibilities:</h3>
+
+<ul>
+<li>Collaborate with clients to understand their event objectives, budget, and preferences.</li>
+<li>Plan and organize various events, including conferences, weddings, parties, and corporate meetings.</li>
+<li>Source and negotiate with vendors, suppliers, and venues to secure the best services within budget constraints.</li>
+
+</ul>
+<h3>Benefits:</h3>
+
+<ul>
+    <li>Competitive salary (10€/h)</li>
+        <li>Health insurance</li>
+                <li>Exciting and dynamic work environment</li>
+</ul>
+
+</p>
+<button class="apply-button" @click="applyNow">APPLY NOW</button>
+
+
+  </div>
   </template>
   
+
   <script>
   export default {
-
+ 
     props: {
       job: {
         type: Object,
@@ -64,6 +88,10 @@
       }
     },
     methods: {
+        applyNow() {
+            console.log('Applying for the job:', this.job.title);
+      this.$router.push({ name: 'Profil', params: { job: this.job } });
+    }
      
     }
   };
@@ -134,5 +162,22 @@
 
 .company-frame3 {
   right: 15%;
+}
+
+.description-row {
+  margin-left: 20px; /* Adjust the margin as needed */
+}
+
+.apply-button {
+    display: flex;
+width: 250px;
+padding: 16px 48px;
+justify-content: center;
+align-items: center;
+
+border-radius: 5px;
+background: #579BC0;
+margin-left: 16%; /* Center the button horizontally */
+
 }
 </style>

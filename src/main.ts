@@ -24,6 +24,7 @@ import { createApp } from 'vue';
 // Plugins
 import { registerPlugins } from '@/plugins';
 
+
 const app = createApp(App);
 
 // Use the VueAwesomeSwiper plugin
