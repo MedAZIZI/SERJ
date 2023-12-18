@@ -28,7 +28,7 @@
                     </v-list-item-icon>
                 </v-list-item>
             </v-row>
-            <v-row>
+            <!--<v-row>
                 <v-list-item link to="/frgtPswrd">
                     <v-list-item-icon>
                         <v-icon>mdi-form-textbox</v-icon><span class="txt">Change Password</span> 
@@ -45,7 +45,7 @@
                             Account</span>
                     </v-list-item-icon>
                 </v-list-item>
-            </v-row>
+            </v-row>-->
 
             <div style="height:50px"></div>
 

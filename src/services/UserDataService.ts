@@ -40,8 +40,8 @@ class TutorialDataService {
     return http.post("/auth/resetPassword", data)
   }
 
-  getConversation(data: any) {
-    return http.get("/user/conv")
+  getConversation(id:any, recipient: any) {
+    return http.get(`/user/conv/${id}/${recipient}`)
   }
   logout() {
     localStorage.removeItem('userType');

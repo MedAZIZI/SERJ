@@ -1,13 +1,11 @@
 <!-- 8 rows  -->
 <template>
     <v-container style="background: var(--BG, #FAFAFD);">
-        <v-row>
+        <!--<v-row>
             <v-col cols="6">
                 <h2>Experience</h2>
             </v-col>
-            <v-col cols="6" class="text-right">
-                <v-icon class="mdi mdi-plus-circle-outline"></v-icon>
-            </v-col>
+
         </v-row>
 
 
@@ -60,9 +58,7 @@
             <v-col cols="6">
                 <h2>Education</h2>
             </v-col>
-            <v-col cols="6" class="text-right">
-                <v-icon class="mdi mdi-plus-circle-outline"></v-icon>
-            </v-col>
+            
         </v-row>
         <v-row>
             <v-col cols="3">
@@ -77,14 +73,14 @@
             <v-col cols="3">
                 <v-row class="tGr padT20">From</v-row>
             </v-col>
-
+        -->
             <!-- <v-col cols="9">
                 <v-row>
                     <v-col cols="5"><v-text-field class="chmap" v-model="Date1" outlined></v-text-field></v-col>
                     <v-col cols="2" class="tGr">To</v-col>
                     <v-col cols="5"><v-text-field class="chmap" v-model="Date2" outlined></v-text-field></v-col>
                 </v-row>
-            </v-col> -->
+            </v-col> 
             <v-col cols="8" style="margin-left: 10px;">
                 <v-row>
                     <v-col cols="4" class="field_ContAnn">
@@ -113,7 +109,7 @@
             <v-col cols="8" class="field_Cont">
                 <input class="field" v-model="Locationn">
             </v-col>
-        </v-row>
+        </v-row>-->
         <v-row>
             <v-col cols="12">
                 <h2>Your job Preferences</h2>

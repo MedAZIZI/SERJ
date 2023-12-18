@@ -477,6 +477,7 @@ export default {
     },
     openDetailsDialog(job) {
       // Instead of setting selectedJob directly, you can navigate to the Apply component
+      console.log(job)
       this.$router.push({ name: 'Apply', params: { job } });
     },
 
@@ -527,14 +528,6 @@ export default {
       );
     },
 
-    applyToJob() {
-      UserDataService.get().then(response => {
-            console.log(response.data)
-            UserDataService.associateJob({"userID": response.data.id, "enterpriseID": 1, content: "Good Luck !! You applied to your Event Planner job"})
-
-        })
-
-    }
 
   },
 };

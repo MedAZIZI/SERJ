@@ -93,8 +93,10 @@ export default {
     const response = await UserDataService.login({ "email": this.email, "password": this.password })
     console.log(response.data); // Succès de la connexion
     localStorage.setItem('userId', response.data.userId);
-          localStorage.setItem('userType', response.data.userType);
-          if (response.status == 200) this.$router.push({ name: 'Profil' })
+    localStorage.setItem('userType', response.data.userType);
+    if (response.status == 200 && response.data.userType=='user') this.$router.push({ name: 'Profil' })
+    if (response.status == 200 && response.data.userType=='entreprise') this.$router.push({ name: 'Message' })
+
   } catch (error) {
     console.error(error.response.data); // Erreur d'authentification
   }

@@ -55,11 +55,15 @@ export default {
         };
     },
     mounted() {
-        UserDataService.getConversation().then(response => {
+        UserDataService.getConversation(localStorage.getItem('userId'),localStorage.getItem('userType')).then(response => {
             console.log(response.data)
             this.cardItems.push({imageUrl: "src/assets/bee.png", text: response.data[0].ConversationUE.content})
 
         })
+        if(localStorage.getItem('userType')=='entreprise') {
+            this.cardItems=[{imageUrl: "src/assets/bee.png",
+                    text: "You received an application for your Event Planner job."}]
+        }
   },
     methods: {
         handleButton1Click(item) {

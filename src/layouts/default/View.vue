@@ -41,11 +41,11 @@
                     <v-icon>mdi-file-check</v-icon> Proposal
                 </v-list-item-icon>
             </v-list-item>
-            <v-list-item link to="/about">
+            <!--<v-list-item link to="/about">
                 <v-list-item-icon>
                     <v-icon> mdi-bag-checked</v-icon> Career Advice
                 </v-list-item-icon>
-            </v-list-item>
+            </v-list-item>-->
             <div style="height: 200px;"></div>
             <v-list-item link to="/settings">
                 <v-list-item-icon>
@@ -60,7 +60,7 @@
 
         </v-list>
         <!-- ###############  employer part  ############### -->
-        <v-list  v-if="user === 'employer'">
+        <v-list  v-if="user === 'entreprise'">
             <v-col>
                 <v-row class="d-flex align-center justify-center" style="padding: 20px;">
                     <v-avatar size="100">
@@ -169,7 +169,7 @@ export default {
             this.name = response.data.prenom+" "+response.data.nom
         })
       }
-      else if(localStorage.getItem(localStorage.getItem('userId'))=='entreprise') {
+      else if(localStorage.getItem(localStorage.getItem('userType')=='entreprise')) {
         UserDataService.getEntreprise().then(response => {
             console.log(response.data)
             this.name = response.data.enterpriseRepresentative

@@ -36,7 +36,7 @@
       <div class="company-frame3">
         <p style="margin-left: 12px">
         
-            <strong>10€/h</strong> {{ job.aboutCompany }}
+            <strong>{{}}</strong> {{ job.aboutCompany }}
          
         </p>
       </div>
@@ -79,6 +79,7 @@
   
 
   <script>
+  import UserDataService from '@/services/UserDataService';
   export default {
  
     props: {
@@ -87,10 +88,21 @@
         default: () => ({})
       }
     },
+    data(){
+      return {}
+    },
     methods: {
         applyNow() {
             console.log('Applying for the job:', this.job.title);
-      this.$router.push({ name: 'Profil', params: { job: this.job } });
+          console.log(localStorage.getItem('userId'))
+      UserDataService.getUser(localStorage.getItem('userId')).then(response => {
+            console.log(response.data)
+            UserDataService.associateJob({"userID": response.data.id, "enterpriseID": 1, content: "Good Luck !! You applied to your Event Planner job", recipient: "user"})
+            UserDataService.associateJob({"userID": response.data.id, "enterpriseID": 1, content: `${response.data.nom} has applied to your Event Planner job`, recipient: "entreprise"})
+
+        })
+      this.$router.push({ name: 'ApplyModal'});
+      //this.$router.push({ name: 'Profil', params: { job: this.job } });
     }
      
     }

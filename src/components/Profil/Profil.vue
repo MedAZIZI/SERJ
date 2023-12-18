@@ -60,9 +60,6 @@
             <v-col cols="6">
                 <h2>Experience</h2>
             </v-col>
-            <v-col cols="6" class="text-right">
-                <h2 class="see">See all</h2>
-            </v-col>
         </v-row>
         <v-row class="exp">
             <v-col cols="3" class="pad10">
@@ -93,9 +90,6 @@
             <v-col cols="6">
                 <h2>Education</h2>
             </v-col>
-            <v-col cols="6" class="text-right">
-                <h2 class="see"> See all</h2>
-            </v-col>
         </v-row>
         <v-row class="exp">
             <v-col cols="3" class="pad10">
@@ -125,9 +119,6 @@
         <v-row>
             <v-col cols="6">
                 <h2>Your job Preferences</h2>
-            </v-col>
-            <v-col cols="6" class="text-right">
-                <h2 class="see">Edit options</h2>
             </v-col>
         </v-row>
         <v-row style="padding-left:20px">
