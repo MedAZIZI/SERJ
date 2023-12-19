@@ -81,7 +81,7 @@ export default {
 }
 .v-icon {
   margin-left: 40px; /* Adjust the margin as needed */
-  /* display: none; */
+   display: none; 
 }
 .icon{
     display: block;
